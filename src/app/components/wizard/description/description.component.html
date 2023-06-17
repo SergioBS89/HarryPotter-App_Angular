@@ -1,0 +1,27 @@
+<div class="container" style="margin-top: 100px;">
+    <div class="row" >
+        <div class="box-item col-xl-3 col-md-6 col-sm-12 " style="position: relative;" *ngFor="let item of wizardList">
+            <div class="flip-box">
+                <div class="flip-box-front text-center" style="background-image: url({{item.picture}})">
+                    <div class="inner color-white">
+                        <h3 class="flip-box-header">{{item.name}}</h3>
+                        <p></p>
+                        <img src="https://s25.postimg.cc/65hsttv9b/cta-arrow.png" alt="" class="flip-box-img">
+                    </div>
+                </div>
+                <div class="flip-box-back text-center"
+                    style="background-image: url('https://s25.postimg.cc/frbd9towf/cta-2.png');">
+                    <div class="inner color-white">
+                        <!-- <h3 class="flip-box-header"></h3> -->
+                        <p>Adress: {{item.actor}}</p>
+                        <p>Age: {{item.age}}</p>
+                        <p>House: {{item.house}}</p>
+                        <p>profession: {{item.profession}}</p>
+                        <p>Home: {{item.homeAddress}}</p>
+                        <button class="flip-box-button">Learn more</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

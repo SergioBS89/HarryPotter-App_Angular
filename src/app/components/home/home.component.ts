@@ -16,8 +16,6 @@ export class HomeComponent {
   currentRoute: string = '';
 
   ngOnInit(): void {
-    console.log(this.service.lastPosition)  
-    console.log(this.service.urlToBack)  
     if(this.router.url == "/"){
       document.getElementById('wander').classList.remove("wander")
       document.getElementById('wander').classList.add("noWander")

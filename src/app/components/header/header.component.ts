@@ -11,8 +11,6 @@ export class HeaderComponent {
   constructor(private service: WizardService, private router: Router) {}
 
   ngOnInit() {
-    console.log(this.service.lastPosition)  
-    console.log(this.service.urlToBack)  
     //Checking if array url's are empty to disply the wander
     if (this.service.urlArray.length == 0) {
       let wander = document.getElementById('wander');
@@ -22,10 +20,10 @@ export class HeaderComponent {
 
   //ROUTING
   goBack() {    
-    // if(this.router.url == '/wizards'){
-    //   this.service.currentArray = []
-    //   this.router.navigate(['/'])
-    // }   
+    if(this.router.url == '/wizards'){
+      this.service.urlArray = []
+      this.router.navigate(['/'])
+    }   
     this.service.urlArray.pop()
       this.router.navigate([this.service.urlArray[this.service.urlArray.length - 1]]);   
       console.log(this.service.urlArray[this.service.urlArray.length - 1])

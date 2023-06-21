@@ -8,12 +8,17 @@ import {HttpClientModule} from '@angular/common/http';
 import { RouterLinkActive } from '@angular/router';
 import { RouterModule,Routes } from '@angular/router';
 import { DescriptionComponent } from './components/wizard/description/description.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HouseComponent } from './components/house/house.component';
 
 const routes : Routes = [
   // {path: '', redirectTo: '/clients', pathMatch: 'full'} THIS IS EXAMPLE TO REDIRECT
-  {path: '', component: WizardComponent},
-  //CAMBIAR NOMBRE DE ESTE COMPONENTE
-  {path: 'desc/:name', component: DescriptionComponent}
+  {path: '', component: HomeComponent},
+  {path: 'wizards', component: WizardComponent},
+  {path: 'desc/:name', component: DescriptionComponent},
+  {path: 'house', component: HouseComponent}
+
 ]
 
 @NgModule({
@@ -21,7 +26,10 @@ const routes : Routes = [
     AppComponent,
     HomeComponent,
     WizardComponent,
-    DescriptionComponent
+    DescriptionComponent,
+    HeaderComponent,
+    FooterComponent,
+    HouseComponent
   ],
   imports: [
     BrowserModule,

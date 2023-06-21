@@ -1,0 +1,19 @@
+/* FOOTER STYLE */
+
+a:hover {
+    color: rgb(177, 223, 70) !important;
+}
+
+.text-footer, 
+a{
+    color: rgb(32, 32, 32);
+    text-decoration: none;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgb(5, 5, 5);
+    background: linear-gradient(90deg, rgba(5, 5, 5, 1) 0%, rgba(254, 131, 8, 0.774) 50%, rgba(0, 0, 0, 1) 100%);
+    border-top: 2px solid rgba(73, 73, 73, 0.822);
+}

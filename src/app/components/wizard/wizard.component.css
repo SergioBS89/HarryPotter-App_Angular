@@ -5,8 +5,8 @@
 .flip-box{
     transform-style:preserve-3d;
     perspective: 1000px;
-    cursor: pointer;
-    margin-top: 130px;
+    margin-top: 70px;
+    margin-bottom: 80px;
 }
 .flip-box-front,
 .flip-box-back{
@@ -60,7 +60,7 @@
 }
 
 .flip-box-header{
-    font-size: 30px;
+    font-size: 27px;
     
     font-weight: bold;
     font-family: 'Carter One', cursive;

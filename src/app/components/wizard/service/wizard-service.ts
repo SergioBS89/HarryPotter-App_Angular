@@ -10,27 +10,24 @@ export class WizardService {
 
   constructor(private http: HttpClient) { }
 
-
-  /**
-   * Enpoint get list of clients
-   */
-  private findAllEnpoint = "http://localhost:8080/wizards"
-  private findByIdEnpoint = "http://localhost:8080/wizards/" 
-  /**
-     * Get the data json from client.json.ts file
-     * @Observable It becomes the data in an observable, it makes the dates reactive and asinchronous
-     */
+  private urlEnpoint = "http://localhost:8080/wizards"
+  urlArray:string[]=[] //This array save all the routes 
+  lastPosition = this.urlArray[this.urlArray.length-1]
+  urlToBack = this.urlArray[this.urlArray.length-2]
+  
   findAll() : Observable<Wizard[]>{
     /* There are two ways to get an observable from the api:
     Option 1:                                                          
     return this.http.get<Client[]>(this.findAllEnpoint)
     Option 2:                                             */
-    return this.http.get(this.findAllEnpoint).pipe(
+    return this.http.get(this.urlEnpoint).pipe(
       map(response => response as Wizard[])
     )
   }
 
-  findByName(name: string) : Observable<Wizard[]>{
-    return this.http.get<Wizard[]>(this.findByIdEnpoint+name)
+  findByName(name: string) : Observable<Wizard>{
+    return this.http.get<Wizard>(this.urlEnpoint + "/" + name)
   }
+
+
 }

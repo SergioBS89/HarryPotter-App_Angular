@@ -1,7 +1,7 @@
 <div class="container" style="margin-top: 150px;">
     <div class="row" *ngFor="let item of wizardList">
-        <div class="container-img-desc col-xl-4 col-lg-9 col-sm-12" style="background-image: url({{item.picture}});" ></div>
-        <div class="container-text-desc col-5 ">
+        <div class="container-img-desc col-xl-4 col-lg-5 col-sm-12" style="background-image: url({{item.picture}});" ></div>
+        <div class="container-text-desc col ">
             <ul>
                 <li style="list-style: none;">
                     <h1>{{item.name}}</h1>
@@ -11,10 +11,10 @@
                     <p><span>*Edad:</span> {{item.age}}</p>
                 </li>
                 <li class="list-atributes">
-                    <p><span>*Profesión:</span>{{item.profession}}</p>
+                    <p><span>*Profesión:</span> {{item.profession}}</p>
                 </li>
                 <li class="list-atributes">
-                    <p><span>*Dirección muggle:</span>{{item.address}}</p>
+                    <p><span>*Dirección muggle:</span> {{item.homeAddress}}</p>
                 </li>
                 <li class="list-atributes">
                     <p><span>*Actor:</span> {{item.actor}}</p>
@@ -23,19 +23,17 @@
                     <p><span>*Casa:</span> {{item.housename}}</p> 
                     <!-- Añadir button to link house -->
                 </li>
-                <li class="list-atributes">
-                    <p><span>*Biblografía:</span> {{item.bibliography}}</p>
-                </li>
             </ul>
         </div>
-        <h2 class="title-members-family">*Miembros de la familia {{familyName}}*</h2>
+        <p class="bibliography"><span>*Biblografía:</span> {{item.bibliography}}</p>
+        <h2 class="title-members-family">*Miembros de la familia {{familyName}}:</h2>
     </div>   
 </div>
 <br>
 <div class="container">    
     <div class="row" style="display: flex; justify-content: space-around;" *ngFor="let member of membersFamily">
         <div class="figure col-3">
-            <div class="face-family" style="background-image: url({{member.picture}});"></div>
+            <div class="face-family" style="background-image: url({{member.facemember}});"></div>
             <p>{{member.name}}</p>
             <!-- Add button to link this person -->
         </div>

@@ -19,35 +19,37 @@ export class DescriptionComponent {
   wizardList: Wizard[] = [];
   membersFamily: Wizard[] = [];
   family: Family[] = [];
-  familyName = this.family[0].name
-
-  currentRoute: string = this.router.url
-  toSimbol = this.currentRoute.indexOf("%")
-  validateUrl = this.currentRoute.substring(0, this.toSimbol)
-
+  familyName: String = ""
+  facemember :String = ""
 
   ngOnInit(): void {
     let name = this.activeRoute.snapshot.params['name'];
     this.service.findByName(name).subscribe((wizards) => {
       this.wizardList.push(wizards);
-    });
-
-    this.service.findFamilyByName(this.wizardList[0].name).subscribe(
-      response=> this.family.push(response));
-
-    this.family[0].members.forEach(member => {
-      if(member.name != this.wizardList[0].name)
-      this.membersFamily.push(member)
+      this.service.findFamilyByName("Potter").subscribe(
+        response => {
+          this.family.push(response)
+          console.log(this.family[0].members)
+          this.family[0].members.forEach(member => {
+            if (member.name != this.wizardList[0].name) {
+              this.membersFamily.push(member)
+            }
+          this.familyName = this.family[0].name
+          });
+        })
     });
 
     //Route validation to avoid repeat the same url in array routes
-    if (this.service.urlArray[this.service.urlArray.length - 1] != this.router.url && !this.service.urlArray[this.service.urlArray.length - 1].startsWith(this.validateUrl)) {
+    let currentRoute: string = this.router.url
+    let toSimbol = currentRoute.indexOf("%")
+    let validateUrl = currentRoute.substring(0, toSimbol)
+    if (this.service.urlArray[this.service.urlArray.length - 1] != this.router.url && !this.service.urlArray[this.service.urlArray.length - 1].startsWith(validateUrl)) {
       this.service.urlArray.push(this.router.url);
     }
   }
 
   //Prueba ir al compo house
   goHouse() {
-    this.router.navigate([this.wizardList[0].house]);
+    this.router.navigate([this.wizardList[0].houseurl]);
   }
 }

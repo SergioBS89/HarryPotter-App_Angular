@@ -8,11 +8,13 @@ export class Wizard {
     home_address = ""
     profession: string = ""
     actor: string = ""
-    house: string = ""
+    housename: string = ""
+    houseurl: string = ""
     bibliography: string = ""
     picture: string = ""
     wizards_house: number = 0
     wizards_mortifigos: number = 0
     wizards_family: number = 0
+    facemember: string = ""
 
 }

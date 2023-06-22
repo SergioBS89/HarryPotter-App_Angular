@@ -16,6 +16,7 @@ export class WizardComponent {
 
   ngOnInit(): void {
     this.service.findAll().subscribe((wizards) => (this.wizardList = wizards));
+    
 
     //Current route
     //Route validation to avoid repeat the same url in array routes

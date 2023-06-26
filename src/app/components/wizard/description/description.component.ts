@@ -19,7 +19,6 @@ export class DescriptionComponent {
   wizardList: Wizard[] = [];
   membersFamily: Wizard[] = [];
   family: Family[] = [];
-  familyName: String = ""
   facemember: String = ""
 
 
@@ -28,7 +27,7 @@ export class DescriptionComponent {
     let name = this.activeRoute.snapshot.params['name'];
     this.service.findByName(name).subscribe((wizards) => {
       this.wizardList.push(wizards);
-      this.service.findFamilyByName(this.familyName).subscribe(
+      this.service.findFamilyByName(this.wizardList[0].familyname).subscribe(
         response => {
           this.family.push(response)
           console.log(this.family[0].members)
@@ -36,7 +35,6 @@ export class DescriptionComponent {
             if (member.name != this.wizardList[0].name) {
               this.membersFamily.push(member)
             }
-            this.familyName = this.family[0].name
           });
         })
     });
@@ -45,15 +43,15 @@ export class DescriptionComponent {
     let currentRoute: string = this.router.url
     let toSimbol = currentRoute.indexOf("%")
     let validateUrl = currentRoute.substring(0, toSimbol)
-    let validateUrl2 = currentRoute.substring(0, currentRoute.indexOf(" "))
-    if (this.service.urlArray[this.service.urlArray.length - 1] != this.router.url && (!this.service.urlArray[this.service.urlArray.length - 1].startsWith(validateUrl))
-      || !this.service.urlArray[this.service.urlArray.length - 1].startsWith(validateUrl2)) {
+ 
+    if (this.service.urlArray[this.service.urlArray.length - 1] != this.router.url && !this.service.urlArray[this.service.urlArray.length - 1].startsWith(validateUrl)) {
       this.service.urlArray.push(this.router.url);
-    }
+    } 
   }
 
   //Prueba ir al compo house
   goHouse() {
-    this.router.navigate([this.wizardList[0].houseurl]);
+    // this.router.navigate([this.wizardList[0].houseurl]);
+    this.router.navigate(['/house']);
   }
 }

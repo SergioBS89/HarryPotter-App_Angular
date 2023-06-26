@@ -16,5 +16,7 @@ export class Wizard {
     wizards_mortifigos: number = 0
     wizards_family: number = 0
     facemember: string = ""
+    color: string = ""
+    familyname: string = ""
 
 }

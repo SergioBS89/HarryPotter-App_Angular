@@ -20,7 +20,7 @@ export class DescriptionComponent {
   membersFamily: Wizard[] = [];
   family: Family[] = [];
   familyName: String = ""
-  facemember :String = ""
+  facemember: String = ""
 
 
   // TRAER COLOR Y NOMBRE FAMILIA IN ENTITY WIZARD
@@ -36,7 +36,7 @@ export class DescriptionComponent {
             if (member.name != this.wizardList[0].name) {
               this.membersFamily.push(member)
             }
-          this.familyName = this.family[0].name
+            this.familyName = this.family[0].name
           });
         })
     });
@@ -45,7 +45,9 @@ export class DescriptionComponent {
     let currentRoute: string = this.router.url
     let toSimbol = currentRoute.indexOf("%")
     let validateUrl = currentRoute.substring(0, toSimbol)
-    if (this.service.urlArray[this.service.urlArray.length - 1] != this.router.url && !this.service.urlArray[this.service.urlArray.length - 1].startsWith(validateUrl)) {
+    let validateUrl2 = currentRoute.substring(0, currentRoute.indexOf(" "))
+    if (this.service.urlArray[this.service.urlArray.length - 1] != this.router.url && (!this.service.urlArray[this.service.urlArray.length - 1].startsWith(validateUrl))
+      || !this.service.urlArray[this.service.urlArray.length - 1].startsWith(validateUrl2)) {
       this.service.urlArray.push(this.router.url);
     }
   }

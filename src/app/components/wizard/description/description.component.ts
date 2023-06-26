@@ -22,11 +22,13 @@ export class DescriptionComponent {
   familyName: String = ""
   facemember :String = ""
 
+
+  // TRAER COLOR Y NOMBRE FAMILIA IN ENTITY WIZARD
   ngOnInit(): void {
     let name = this.activeRoute.snapshot.params['name'];
     this.service.findByName(name).subscribe((wizards) => {
       this.wizardList.push(wizards);
-      this.service.findFamilyByName("Potter").subscribe(
+      this.service.findFamilyByName(this.familyName).subscribe(
         response => {
           this.family.push(response)
           console.log(this.family[0].members)

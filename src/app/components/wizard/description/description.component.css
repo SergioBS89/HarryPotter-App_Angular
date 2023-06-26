@@ -7,7 +7,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 100px;
+    margin-left: 12px;
     border: solid 2px rgba(0, 0, 0, 0.733);
 }
 
@@ -32,7 +32,7 @@ li{
     color: rgba(0, 0, 0, 0.705);
     font-family: 'Trebuchet MS', sans-serif;
 }
-.container-text-desc p span{
+.container-text-desc p span, .bibliography span{
     font-size: 20px;
     color: rgba(0, 0, 0, 0.705);
     font-family: 'Carter One';
@@ -51,6 +51,7 @@ li{
     border-radius: 50%;
     position: relative;
     border: solid 2px rgba(0, 0, 0, 0.733); 
+    margin-right: 50px;
 }
 
 .face-family{
@@ -66,15 +67,16 @@ li{
 .figure p{
     position: absolute;
     bottom: -50px;
-    left: 50%;
-    transform: translateX(-50%);
     font-size: 20px;
     font-family: 'Carter One';
+    width: 100%;
+    left: 0;
 }
 
 .bibliography{
     margin-top: 30px;
     text-align: justify;
 }
+
 
 

@@ -31,10 +31,10 @@
 </div>
 <br>
 <div class="container">    
-    <div class="row" style="display: flex; justify-content: space-around;" *ngFor="let member of membersFamily">
-        <div class="figure col-3">
+    <div class="row column-row" >
+        <div class="figure col-3" *ngFor="let member of membersFamily">
             <div class="face-family" style="background-image: url({{member.facemember}});"></div>
-            <p>{{member.name}}</p>
+            <p class="text-center">{{member.name}}</p>
             <!-- Add button to link this person -->
         </div>
     </div>

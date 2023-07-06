@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Wizard } from '../wizard/class/wizard';
-import { WizardService } from '../wizard/service/wizard-service';
+import { House } from './class/house';
+import { HouseService } from './service/house-service';
 
 @Component({
   selector: 'app-house',
@@ -10,24 +10,24 @@ import { WizardService } from '../wizard/service/wizard-service';
 })
 export class HouseComponent {
   constructor(
-    private service: WizardService,
+    private service: HouseService,
     private activeRoute: ActivatedRoute,
     private router: Router
   ) {}
 
 
-  currentRoute: string = '';
+  houseList: House[] = [];
+ 
 
   ngOnInit(): void {
+    this.service.findAll().subscribe((house) => {
+      (this.houseList = house)
+      console.log(house)
+    })
+  }
 
-    //Current route
-    this.currentRoute = this.router.url;
-    this.service.urlArray.push(this.currentRoute);
-
-    // console.log(this.service.urlArray.length)  
-    // for (let i = 0; i < this.service.urlArray.length; i++) {
-      console.log(this.service.urlArray)        
-    // }
-    
+  //It goes to description screen
+  seeDescription(url: string) {
+    this.router.navigate(['/desc/' + url]);
   }
 }

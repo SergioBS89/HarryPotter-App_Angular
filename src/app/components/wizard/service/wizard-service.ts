@@ -32,6 +32,4 @@ export class WizardService {
   findFamilyByName(name: String) : Observable<Family>{
     return this.http.get<Family>(`${this.urlEnpointFamily}/${name}`)    
   }
-
-
 }

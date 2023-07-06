@@ -1,3 +1,23 @@
-<div class="container">
-    <h1>eii</h1>
+<div class="background">
+    <div class="container" style="margin-top: 100px;">
+        <div class="row">
+            <div class="box-item col-xxl-3 col-xl-4 col-md-6 col-sm-12 " style="position: relative;"
+                *ngFor="let item of houseList">
+                <div class="flip-box">
+                    <div class="flip-box-front text-center" style="background-image: url({{item.picture}})">
+                    <!-- <div class="flip-box-front text-center" style="background-image: url(../../../assets/img/houses/gry-front.jpg)"> -->
+                        <div class="inner color-name">
+                            <h3 class="flip-box-header">{{item.name}}</h3>
+                            <i id="color-arrow" class="fa-solid fa-circle-right flip-box-img {{item.color}}"></i>
+                        </div>
+                    </div>
+                    <div class="flip-box-back text-center" style="background-image: url({{item.houseurl}});">
+                        <div class="inner color-text">
+                            <button class="flip-box-button" (click)="seeDescription(item.name)">Más información</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

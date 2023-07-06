@@ -16,13 +16,13 @@
                         <p><span>*Edad:</span> {{age}}</p>
                     </li>
                     <li class="list-atributes">
-                        <p><span>*Dirección muggle:</span> {{item.homeAddress}}</p>
-                    </li>
-                    <li class="list-atributes">
                         <p><span>*Actor:</span> {{item.actor}}</p>
                     </li>
                     <li class="list-atributes">
-                        <p><span>*Casa:</span> {{item.housename}}</p>
+                        <p><span>*Dirección muggle:</span> {{item.homeAddress}}</p>
+                    </li>
+                    <li class="list-atributes">
+                        <p><span>*Casa:</span> {{item.housename}} <span> <i class="fa-solid fa-house link-house"></i></span></p>
                         <!-- Añadir button to link house -->
                     </li>
                 </ul>
@@ -41,7 +41,6 @@
             </div>
         </div>
     </div>
-    <button (click)="goHouse()">mas</button>
     <br>
     <br>
     <br>

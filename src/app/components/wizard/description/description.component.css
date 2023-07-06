@@ -88,4 +88,10 @@ li{
     color: rgb(155, 155, 253);
 }
 
+.link-house{
+    cursor: pointer;
+    color: rgb(205, 170, 238);
+    font-size: x-large;
+}
+
 

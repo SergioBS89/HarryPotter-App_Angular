@@ -10,6 +10,7 @@ export class Wizard {
     actor: string = ""
     housename: string = ""
     houseurl: string = ""
+    housecardpicture: string = ""
     bibliography: string = ""
     picture: string = ""
     wizards_house: number = 0

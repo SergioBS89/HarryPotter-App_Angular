@@ -1,7 +1,11 @@
-/* .container{
-    width: 90% !important;
-    max-width: 80%;
-} */
+
+.general-background{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 9, 9, 0.671);
+    padding-top: 150px;
+}
+
 .container-img-desc{
     height: 600px;
     background-position: center;
@@ -23,18 +27,19 @@ li{
     font-family: 'Carter One', cursive; 
     font-weight: lighter; 
     font-size: 70px;
-    color: rgb(58, 57, 58);
-    color: rgb(129, 19, 4);
-    list-style: none;
+    background: -webkit-linear-gradient(rgb(252, 0, 0), rgb(0, 0, 0));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
 }
+
 .container-text-desc p{
     font-size: 20px;
-    color: rgba(0, 0, 0, 0.705);
+    color: rgb(255, 255, 255);
     font-family: 'Trebuchet MS', sans-serif;
 }
 .container-text-desc p span, .bibliography span{
     font-size: 20px;
-    color: rgba(0, 0, 0, 0.705);
+    color: rgb(245, 179, 36);
     font-family: 'Carter One';
 }
 .title-members-family{
@@ -42,7 +47,7 @@ li{
     padding: 0;
     margin-top: 30px;
     font-family: 'Carter One';
-    color: rgba(19, 19, 19, 0.788);
+    color: rgb(214, 147, 3);
     /* color: rgb(129, 19, 4); */
 }
 .figure{    
@@ -76,7 +81,11 @@ li{
 .bibliography{
     margin-top: 30px;
     text-align: justify;
+    color: rgb(255, 255, 255);
 }
 
+.name-face-color{
+    color: rgb(155, 155, 253);
+}
 
 

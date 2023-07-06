@@ -19,10 +19,6 @@
     border: 7px solid black;
 }
 
-.color-white{
-    color: white;
-}
-
 .flip-box-front{
     transform: rotateY(0deg);
     transform-style: preserve-3d;
@@ -59,26 +55,40 @@
     top: 40%;
 }
 
+.color-text{
+    color: rgb(235, 7, 7);
+}
+
+.color-name{
+    color: rgb(255, 255, 255);
+}
+
 .flip-box-header{
     font-size: 27px;
     font-weight: bold;
     font-family: 'Carter One', cursive;
     width: 100%;
-    background-color: #0a0909b5;
+    background-color: #0a0909c7;
     padding: 10px;
     border-radius: 15px;
 }
 
-.slitherin{
-    color: rgb(6, 113, 13);
+.green{
+    color: rgb(0, 0, 0);
+    background-color: rgb(16, 97, 0);
+    border-radius: 100%;
+    padding: 3px;
 }
-.grifindor{
-    color: rgb(174, 0, 0);
+.red{
+    color: rgb(7, 7, 7);
+    background-color: rgb(163, 4, 4);
+    border-radius: 100%;
+    padding: 3px;
 }
 
 .flip-box-img{
-    margin-top: 400px;
-    color: yellow;
+    margin-top: 450px;
+    font-size: xx-large;
 }
 
 .flip-box p{
@@ -88,15 +98,14 @@
 }
 
 .flip-box-button{
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.699);
     border: 2px solid #fff;
     border-radius: 2px;
-    color: #fff;
+    color: #ffffff;
     cursor: pointer;
     font-size: 20px;
     font-weight: bold;
-    margin-top: 25px;
     padding: 15px 20px;
     text-transform: uppercase;
-
+    transform: translateY(250px);
 }

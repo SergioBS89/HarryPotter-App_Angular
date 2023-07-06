@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { WizardService } from '../service/wizard-service';
 import { Wizard } from '../class/wizard';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -16,10 +16,12 @@ export class DescriptionComponent {
     private router: Router
   ) { }
 
+  @Input() description : any
   wizardList: Wizard[] = [];
   membersFamily: Wizard[] = [];
   family: Family[] = [];
   facemember: String = ""
+  age: number = 0
 
 
   // TRAER COLOR Y NOMBRE FAMILIA IN ENTITY WIZARD
@@ -27,26 +29,23 @@ export class DescriptionComponent {
     let name = this.activeRoute.snapshot.params['name'];
     this.service.findByName(name).subscribe((wizards) => {
       this.wizardList.push(wizards);
+
       this.service.findFamilyByName(this.wizardList[0].familyname).subscribe(
         response => {
           this.family.push(response)
-          console.log(this.family[0].members)
+          // console.log(this.family[0].members)
           this.family[0].members.forEach(member => {
             if (member.name != this.wizardList[0].name) {
               this.membersFamily.push(member)
             }
+            let getEdad = this.wizardList[0].age
+            
+            this.age = new Date().getFullYear() - getEdad
+            console.log(new Date().getFullYear() - getEdad)
           });
         })
     });
-
-    //Route validation to avoid repeat the same url in array routes
-    let currentRoute: string = this.router.url
-    let toSimbol = currentRoute.indexOf("%")
-    let validateUrl = currentRoute.substring(0, toSimbol)
- 
-    if (this.service.urlArray[this.service.urlArray.length - 1] != this.router.url && !this.service.urlArray[this.service.urlArray.length - 1].startsWith(validateUrl)) {
-      this.service.urlArray.push(this.router.url);
-    } 
+    
   }
 
   //Prueba ir al compo house

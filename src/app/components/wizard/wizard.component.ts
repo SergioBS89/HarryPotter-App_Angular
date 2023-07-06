@@ -16,24 +16,6 @@ export class WizardComponent {
 
   ngOnInit(): void {
     this.service.findAll().subscribe((wizards) => (this.wizardList = wizards));
-    
-
-    //Current route
-    //Route validation to avoid repeat the same url in array routes
-    if (this.service.urlArray[this.service.urlArray.length - 1] != this.router.url) {
-      this.service.urlArray.push(this.router.url);
-    }
-
-    // console.log(this.service.urlArray.length)
-    // for (let i = 0; i < this.service.urlArray.length; i++) {
-    //   console.log(this.service.urlArray)
-    // }
-
-    //Checking if array url's are empty to display the wander
-    if (this.router.url != "/") {
-      document.getElementById('wander').classList.remove('noWander');
-      document.getElementById('wander').classList.add('wander');
-    }
   }
 
   //It goes to description screen
@@ -41,3 +23,5 @@ export class WizardComponent {
     this.router.navigate(['/desc/' + url]);
   }
 }
+
+

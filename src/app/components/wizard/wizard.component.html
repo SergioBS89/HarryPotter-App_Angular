@@ -3,18 +3,15 @@
         <div class="box-item col-xxl-3 col-xl-4 col-md-6 col-sm-12 " style="position: relative;" *ngFor="let item of wizardList">
             <div class="flip-box">
                 <div class="flip-box-front text-center" style="background-image: url({{item.picture}})">
-                    <div class="inner color-white">
+                    <div class="inner color-name">
                         <h3 class="flip-box-header">{{item.name}}</h3>
-                      <!-- <img src="https://s25.postimg.cc/65hsttv9b/cta-arrow.png" alt="" class="flip-box-img">  -->
-                         <i class="fa-solid fa-arrow-right flip-box-img"></i>
+                         <i id="color-arrow" class="fa-solid fa-circle-right flip-box-img {{item.color}}"></i>
                     </div>
                 </div>
                 <div class="flip-box-back text-center"
-                    style="background-image: url('https://s25.postimg.cc/frbd9towf/cta-2.png');">
-                    <div class="inner color-white">
-                        <h3 class="flip-box-header"></h3>
-                        <p>Adress: {{item.homeAddress}}</p>
-                        <button class="flip-box-button" (click)="seeDescription(item.name)">Learn more</button>
+                    style="background-image: url({{item.houseurl}});">
+                    <div class="inner color-text">
+                        <button class="flip-box-button" (click)="seeDescription(item.name)">Más información</button>
                     </div>
                 </div>
             </div>

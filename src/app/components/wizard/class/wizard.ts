@@ -4,20 +4,19 @@ export class Wizard {
     id: number = 0
     name: String = ""
     age: number = 0
-    gender: string = ""
     home_address = ""
-    profession: string = ""
+    rol: string = ""
     actor: string = ""
-    housename: string = ""
-    houseurl: string = ""
-    housecardpicture: string = ""
     bibliography: string = ""
     picture: string = ""
-    wizards_house: number = 0
-    wizards_mortifigos: number = 0
-    wizards_family: number = 0
     facemember: string = ""
-    color: string = ""
-    familyname: string = ""
-
+    housename: string = ""
+    housecardpicture: string = ""
+    color: string = ""      
+    familyname: string = ""  
+    wander_name: string = ""  
+    mortifago: boolean = false
+    auror: boolean = false
+    student: boolean = false
+    wizard: boolean = false
 }

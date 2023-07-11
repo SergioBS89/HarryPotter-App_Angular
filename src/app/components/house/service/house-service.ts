@@ -10,7 +10,7 @@ export class HouseService {
 
   constructor(private http: HttpClient) { }
 
-  private urlEnpointHouse = "http://localhost:8080/house"
+  private urlEnpointHouse = "http://localhost:8080/places/houses"
 
   urlArray:string[]=[] //This array save all the routes 
   

@@ -2,12 +2,13 @@
 .general-background{
     width: 100%;
     height: 100%;
-    background-color: rgba(10, 9, 9, 0.671);
+    background-color: rgba(0, 0, 0, 0.63);
     padding-top: 150px;
 }
 
 .container-img-desc{
-    height: 600px;
+    height: 480px;
+    width: 350px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -26,28 +27,28 @@ li{
 .container-text-desc h1{
     font-family: 'Carter One', cursive; 
     font-weight: lighter; 
-    font-size: 70px;
-    background: -webkit-linear-gradient(rgb(252, 0, 0), rgb(0, 0, 0));
+    font-size: 65px;
+    background: -webkit-linear-gradient(rgb(240, 38, 31), rgb(0, 0, 0));
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
 
 .container-text-desc p{
-    font-size: 20px;
+    font-size: 22px;
     color: rgb(255, 255, 255);
     font-family: 'Trebuchet MS', sans-serif;
 }
 .container-text-desc p span, .bibliography span{
     font-size: 20px;
-    color: rgb(245, 179, 36);
+    color: rgb(243, 199, 103);
     font-family: 'Carter One';
 }
 .title-members-family{
     
     padding: 0;
-    margin-top: 30px;
+    margin-top: 28px;
     font-family: 'Carter One';
-    color: rgb(214, 147, 3);
+    color: rgb(218, 124, 61)
     /* color: rgb(129, 19, 4); */
 }
 .figure{    
@@ -85,12 +86,12 @@ li{
 }
 
 .name-face-color{
-    color: rgb(155, 155, 253);
+    color: rgb(255, 250, 250);
 }
 
 .link-house{
     cursor: pointer;
-    color: rgb(205, 170, 238);
+    color: rgb(214, 86, 1);
     font-size: x-large;
 }
 

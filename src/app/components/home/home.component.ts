@@ -15,12 +15,6 @@ export class HomeComponent {
   wizardList: Wizard[] = [];
   currentRoute: string = '';
 
-  ngOnInit(): void {
-    if(this.router.url == "/"){
-      document.getElementById('wander').classList.remove("wander")
-      document.getElementById('wander').classList.add("noWander")
-    }
-  }
 
   //ROUTING
   seeDescription(url: string) {

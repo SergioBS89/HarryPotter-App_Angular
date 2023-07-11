@@ -1,7 +1,7 @@
 <div class="general-background">
     <div class="container">
         <div class="row" *ngFor="let item of wizardList">
-            <div class="container-img-desc col-xl-4 col-lg-5 col-sm-12"
+            <div class="container-img-desc col-xl-3 col-lg-5 col-sm-12"
                 style="background-image: url({{item.picture}});"></div>
             <div class="container-text-desc col ">
                 <ul>
@@ -10,19 +10,23 @@
                     </li>
                     <br>
                     <li class="list-atributes">
-                        <p><span>*Profesión:</span> {{item.profession}}</p>
+                        <p><span>*Rol:</span> {{item.rol}}</p>
                     </li>
                     <li class="list-atributes">
-                        <p><span>*Edad:</span> {{age}}</p>
+                        <p><span>*Edad:</span> {{age}} años</p>
                     </li>
                     <li class="list-atributes">
                         <p><span>*Actor:</span> {{item.actor}}</p>
                     </li>
                     <li class="list-atributes">
-                        <p><span>*Dirección muggle:</span> {{item.homeAddress}}</p>
+                        <p><span>*Sangre:</span> {{item.blood}}</p>
                     </li>
                     <li class="list-atributes">
                         <p><span>*Casa:</span> {{item.housename}} <span> <i class="fa-solid fa-house link-house"></i></span></p>
+                        <!-- Añadir button to link house -->
+                    </li>
+                    <li class="list-atributes">
+                        <p><span>*Varita:</span> {{item.wander_name}} <span> <i class="fa-solid fa-bolt link-house"></i></span></p>
                         <!-- Añadir button to link house -->
                     </li>
                 </ul>

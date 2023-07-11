@@ -19,8 +19,6 @@ export class DescriptionComponent {
   @Input() description : any
   wizardList: Wizard[] = [];
   membersFamily: Wizard[] = [];
-  family: Family[] = [];
-  facemember: String = ""
   age: number = 0
 
 
@@ -29,23 +27,20 @@ export class DescriptionComponent {
     let name = this.activeRoute.snapshot.params['name'];
     this.service.findByName(name).subscribe((wizards) => {
       this.wizardList.push(wizards);
+      console.log(wizards)
 
       this.service.findFamilyByName(this.wizardList[0].familyname).subscribe(
         response => {
-          this.family.push(response)
-          // console.log(this.family[0].members)
-          this.family[0].members.forEach(member => {
+          let family : any = response          
+          family.forEach(member => {
             if (member.name != this.wizardList[0].name) {
               this.membersFamily.push(member)
             }
-            let getEdad = this.wizardList[0].age
-            
+            let getEdad = this.wizardList[0].age            
             this.age = new Date().getFullYear() - getEdad
-            console.log(new Date().getFullYear() - getEdad)
           });
         })
-    });
-    
+    });    
   }
 
   //Prueba ir al compo house

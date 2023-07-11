@@ -12,7 +12,7 @@ export class WizardService {
   constructor(private http: HttpClient) { }
 
   private urlEnpointWizards = "http://localhost:8080/wizards"
-  private urlEnpointFamily = "http://localhost:8080/family"
+  private urlEnpointFamily = "http://localhost:8080/wizards/family"
   urlArray:string[]=[] //This array save all the routes 
   
   findAll() : Observable<Wizard[]>{

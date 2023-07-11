@@ -23,6 +23,7 @@ export class HouseComponent {
     this.service.findAll().subscribe((house) => {
       (this.houseList = house)
       console.log(house)
+      
     })
   }
 

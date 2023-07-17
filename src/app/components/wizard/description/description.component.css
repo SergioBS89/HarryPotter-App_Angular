@@ -1,8 +1,9 @@
 
-.general-background{
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.63);
+.background{
+    background-image: url(../../../../assets/img/fondo_desc_wiz.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     padding-top: 150px;
 }
 
@@ -13,42 +14,70 @@
     background-repeat: no-repeat;
     background-size: cover;
     margin-left: 12px;
-    border: solid 2px rgba(0, 0, 0, 0.733);
+    border: solid 10px rgba(0, 0, 0, 0.733);
 }
 
 .container-text-desc{
     margin-top: 20px;
-    /* background-color: red; */
+    /* background-color: rgba(0, 0, 0, 0.363);
+    border-radius: 10%; */
+    padding: 20px;
     margin-left: 30px;        
 }
+
 li{
     list-style: none;  
+    margin-bottom: 5px;
 }
+
+/* Name wizard */
 .container-text-desc h1{
+    background-color: rgba(0, 0, 0, 0.747);
+    border-radius: 10px;
+    display: inline;
+    padding: 0 20px;
     font-family: 'Carter One', cursive; 
     font-weight: lighter; 
     font-size: 65px;
-    background: -webkit-linear-gradient(rgb(240, 38, 31), rgb(0, 0, 0));
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
 }
 
-.container-text-desc p{
+/* List with atributes */
+.container-text-desc p span, .bibliography-span{
     font-size: 22px;
-    color: rgb(255, 255, 255);
-    font-family: 'Trebuchet MS', sans-serif;
-}
-.container-text-desc p span, .bibliography span{
-    font-size: 20px;
     color: rgb(243, 199, 103);
     font-family: 'Carter One';
+    margin-right: 5px;
 }
-.title-members-family{
+.container-text-desc p{
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    font-family: 'Trebuchet MS', sans-serif;
+    background-color: rgba(0, 0, 0, 0.363);
+    border-radius: 10%;
+    display: inline;
+    padding: 4px;
+}
+
+.container-bibliography{
+    margin-top: 30px;
+    background-color: rgba(0, 0, 0, 0.747);
+    border-radius: 5%;
+    padding: 10px;
+    }
     
+.bibliography{
+    text-align: justify;
+    color: rgb(255, 255, 255);
+}
+
+.title-members-family{    
     padding: 0;
-    margin-top: 28px;
     font-family: 'Carter One';
-    color: rgb(218, 124, 61)
+    color: rgb(218, 124, 61);
+    background-color: rgba(0, 0, 0, 0.747);
+    border-radius: 5%;
+    display: inline;
+    padding: 5px;
     /* color: rgb(129, 19, 4); */
 }
 .figure{    
@@ -58,6 +87,7 @@ li{
     position: relative;
     border: solid 2px rgba(0, 0, 0, 0.733); 
     margin-right: 50px;
+    margin-bottom: 40px;
 }
 
 .face-family{
@@ -78,21 +108,47 @@ li{
     width: 100%;
     left: 0;
 }
-
-.bibliography{
-    margin-top: 30px;
-    text-align: justify;
-    color: rgb(255, 255, 255);
-}
-
 .name-face-color{
     color: rgb(255, 250, 250);
+}
+.name-face-color:hover{
+    color: rgb(226, 147, 94);
 }
 
 .link-house{
     cursor: pointer;
-    color: rgb(214, 86, 1);
-    font-size: x-large;
+    color: rgb(216, 104, 30);
+    font-size: large;
 }
 
+.link-house:hover{
+    transform: scale(1.2);
+    color: blueviolet;
+}
+
+.green{
+    color: rgb(31, 121, 14);
+    border-radius: 100%;
+    padding: 3px;
+}
+.red{
+    color: rgb(194, 34, 34);
+    border-radius: 100%;
+    padding: 3px;
+}
+.gray{
+    color: rgb(129, 90, 127);
+    border-radius: 100%;
+    padding: 3px;
+}
+.blue{
+    color: rgb(38, 56, 212);
+    border-radius: 100%;
+    padding: 3px;
+}
+.yellow{
+    color: rgb(230, 195, 3);
+    border-radius: 100%;
+    padding: 3px;
+}
 

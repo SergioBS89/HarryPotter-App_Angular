@@ -13,5 +13,10 @@ export class HeaderComponent {
   ngOnInit() {
 
   }
+
+  goTo(category : string){
+
+    this.router.navigate(['/'+ category])
+  }
   }
 

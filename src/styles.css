@@ -1,8 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-    background-image: url(assets/img/fondo6.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+ background-color: black;
 }
 
+/* These are the styles from descroption hipervincules */
+.textHiper{
+    text-decoration: none;
+    color: rgb(106, 187, 40);
+}
+
+.textHiper:hover{
+    color: greenyellow;
+}

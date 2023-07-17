@@ -1,45 +1,9 @@
-.activo{
-    color: rgb(167, 98, 66);
-}
+
 .header{
     border-bottom: solid 2px black;
     border-top: solid 1px black;
 }
 
-.wander{
+a{
     cursor: pointer;
-    position: fixed;
-    left: 5px;
-    margin-top: 20px;
 }
-
-.wander img{
-    width: 150px;
-    height: 20px;
-    margin-left: 5px;
-}
-
-.wander:hover .magic{
-    background-color: rgba(255, 255, 255, 0.658);
-    animation: crescendo 1s ease-in infinite alternate;
-}
-  
-  @keyframes crescendo {
-    0%   {transform: scale(0.2);}
-    100% {transform: scale(1.5);}
-  }
-
-
-/* Styles of wander effects */
-.magic{
-    height: 22px;
-    width: 22px;
-    border-radius: 100%;
-    position: absolute;
-    top: 3px;
-}
-
-.noWander{
- display: none;
-}
-

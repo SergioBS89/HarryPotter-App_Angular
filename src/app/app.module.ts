@@ -11,6 +11,7 @@ import { DescriptionComponent } from './components/wizard/description/descriptio
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HouseComponent } from './components/house/house.component';
+import { FormsModule } from '@angular/forms';
 
 const routes : Routes = [
   // {path: '', redirectTo: '/clients', pathMatch: 'full'} THIS IS EXAMPLE TO REDIRECT
@@ -35,7 +36,8 @@ const routes : Routes = [
     BrowserModule,
     HttpClientModule,
     RouterLinkActive,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-<div class="general-background">
+<div class="background">
     <div class="container">
         <div class="row" *ngFor="let item of wizardList">
             <div class="container-img-desc col-xl-3 col-lg-5 col-sm-12"
@@ -6,33 +6,41 @@
             <div class="container-text-desc col ">
                 <ul>
                     <li style="list-style: none;">
-                        <h1>{{item.name}}</h1>
+                        <h1 class="{{item.color}}">{{item.name}}</h1>
                     </li>
                     <br>
                     <li class="list-atributes">
-                        <p><span>*Rol:</span> {{item.rol}}</p>
+                        <p><span>*Rol: </span>{{item.rol}}</p>
                     </li>
                     <li class="list-atributes">
-                        <p><span>*Edad:</span> {{age}} años</p>
+                        <p><span>*Edad: </span>{{age}} años</p>
                     </li>
                     <li class="list-atributes">
-                        <p><span>*Actor:</span> {{item.actor}}</p>
+                        <p><span>*Actor/Actriz: </span>{{item.actor}}</p>
                     </li>
                     <li class="list-atributes">
-                        <p><span>*Sangre:</span> {{item.blood}}</p>
+                        <p><span>*Sangre: </span>{{item.blood}}</p>
                     </li>
                     <li class="list-atributes">
-                        <p><span>*Casa:</span> {{item.housename}} <span> <i class="fa-solid fa-house link-house"></i></span></p>
+                        <p><span>*Patronus: </span>{{item.patronus}}</p>
+                    </li>
+                    <li class="list-atributes">
+                        <p><span>*Casa: </span>{{item.housename}} <span> <i
+                                    class="fa-solid fa-house link-house"></i></span></p>
                         <!-- Añadir button to link house -->
                     </li>
                     <li class="list-atributes">
-                        <p><span>*Varita:</span> {{item.wander_name}} <span> <i class="fa-solid fa-bolt link-house"></i></span></p>
+                        <p><span>*Varita: </span>{{item.wanderInfo}} <span> <i
+                                    class="fa-solid fa-bolt link-house"></i></span></p>
                         <!-- Añadir button to link house -->
                     </li>
                 </ul>
             </div>
-            <p class="bibliography"><span>*Biblografía:</span> {{item.bibliography}}</p>
-            <h2 class="title-members-family">*Miembros de la familia {{familyName}}:</h2>
+            <div class="container-bibliography">
+                <span class="bibliography-span">*Bibliografia: </span>
+                <p class="bibliography" [innerHTML]="item.bibliography"></p>
+            </div>
+                <h2 class="title-members-family">*Miembros de la familia {{familyName}}:</h2>
         </div>
     </div>
     <br>
@@ -40,8 +48,9 @@
         <div class="row column-row">
             <div class="figure col-3" *ngFor="let member of membersFamily">
                 <div class="face-family" style="background-image: url({{member.facemember}});"></div>
-                <a href="http://localhost:4200/desc/{{member.name}}"><p class="text-center name-face-color">{{member.name}}</p></a>
-                <!-- Add button to link this person -->
+                <a href="http://localhost:4200/desc/{{member.name}}">
+                    <p class="text-center name-face-color">{{member.name}}</p>
+                </a>
             </div>
         </div>
     </div>

@@ -14,7 +14,8 @@ export class Wizard {
     housecardpicture: string = ""
     color: string = ""      
     familyname: string = ""  
-    wander_name: string = ""  
+    wander_info: string = ""  
+    patronus: string = ""  
     mortifago: boolean = false
     auror: boolean = false
     student: boolean = false

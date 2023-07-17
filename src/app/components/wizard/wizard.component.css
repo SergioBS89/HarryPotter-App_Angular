@@ -1,6 +1,13 @@
+.background{
+    background-image: url(../../../assets/img/fondo6.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 50px;
+}
+
 .container{
-    width: 90% !important;
-    max-width: 80%;
+    max-width: 77%;
 }
 .flip-box{
     transform-style:preserve-3d;
@@ -13,7 +20,7 @@
     background-size: cover;
     background-position: center;
     border-radius: 8px;
-    min-height: 500px;
+    min-height: 480px;
     transition:transform 0.7s cubic-bezier(.40,.2,.2,1);
     backface-visibility: hidden;
     border: 7px solid black;
@@ -67,15 +74,23 @@
     font-size: 27px;
     font-weight: bold;
     font-family: 'Carter One', cursive;
-    width: 100%;
+    width: 110%;
     background-color: #0a0909c7;
     padding: 10px;
     border-radius: 15px;
+    margin-bottom: 150px;
+    transform: translate(-5% , -130px);
 }
 
+.flip-box-arrow{
+    font-size: 50px;
+    transform: translateY(115px);
+}
+
+/* COLORS HOUSES */
 .green{
     color: rgb(0, 0, 0);
-    background-color: rgb(16, 97, 0);
+    background-color: rgb(22, 133, 0);
     border-radius: 100%;
     padding: 3px;
 }
@@ -85,11 +100,25 @@
     border-radius: 100%;
     padding: 3px;
 }
-
-.flip-box-img{
-    margin-top: 450px;
-    font-size: xx-large;
+.gray{
+    color: rgb(7, 7, 7);
+    background-color: rgb(129, 90, 127);
+    border-radius: 100%;
+    padding: 3px;
 }
+.blue{
+    color: rgb(7, 7, 7);
+    background-color: rgb(34, 56, 248);
+    border-radius: 100%;
+    padding: 3px;
+}
+.yellow{
+    color: rgb(7, 7, 7);
+    background-color: rgb(230, 195, 3);
+    border-radius: 100%;
+    padding: 3px;
+}
+
 
 .flip-box p{
     margin-top: 20px;
@@ -107,5 +136,5 @@
     font-weight: bold;
     padding: 15px 20px;
     text-transform: uppercase;
-    transform: translateY(250px);
+    transform: translateY(240px);
 }

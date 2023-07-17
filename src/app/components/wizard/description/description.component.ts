@@ -3,6 +3,7 @@ import { WizardService } from '../service/wizard-service';
 import { Wizard } from '../class/wizard';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Family } from '../class/family';
+import { text } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-description',
@@ -10,6 +11,8 @@ import { Family } from '../class/family';
   styleUrls: ['./description.component.css'],
 })
 export class DescriptionComponent {
+
+nameWizard: any;
   constructor(
     private service: WizardService,
     private activeRoute: ActivatedRoute,
@@ -20,7 +23,6 @@ export class DescriptionComponent {
   wizardList: Wizard[] = [];
   membersFamily: Wizard[] = [];
   age: number = 0
-
 
   // TRAER COLOR Y NOMBRE FAMILIA IN ENTITY WIZARD
   ngOnInit(): void {
@@ -47,5 +49,10 @@ export class DescriptionComponent {
   goHouse() {
     // this.router.navigate([this.wizardList[0].houseurl]);
     this.router.navigate(['/house']);
+  }
+
+  //Prueba para obetner hipervinculo desde texto
+  goFromText(name : string){
+this.router.navigate(['http://localhost:4200/desc/' + text])
   }
 }

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { Route, Router } from '@angular/router';
-import { WizardService } from '../wizard/service/wizard-service';
+import { GeneralService } from 'src/app/whole-project/general.service';
 
 @Component({
   selector: 'app-header',
@@ -8,15 +8,19 @@ import { WizardService } from '../wizard/service/wizard-service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  constructor(private service: WizardService, private router: Router) {}
+  constructor(private router: Router) { }
+
+  @Input()
+  isHome: boolean = true;
+  @Input()
+  comeBack: string;
+
 
   ngOnInit() {
-
   }
 
-  goTo(category : string){
-
-    this.router.navigate(['/'+ category])
+  goTo(category: string) {
+    this.router.navigate(['/' + category])
   }
-  }
+}
 

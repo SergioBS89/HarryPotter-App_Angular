@@ -1,7 +1,8 @@
+<app-header [isHome]="isHome" [comeBack]="comeBack"></app-header>
 <div class="background">
     <div class="container">
         <div class="row" *ngFor="let item of wizardList">
-            <div class="container-img-desc col-xl-3 col-lg-5 col-sm-12"
+            <div class="box container-img-desc col-xl-3 col-lg-5 col-sm-12"
                 style="background-image: url({{item.picture}});"></div>
             <div class="container-text-desc col ">
                 <ul>
@@ -25,13 +26,14 @@
                         <p><span>*Patronus: </span>{{item.patronus}}</p>
                     </li>
                     <li class="list-atributes">
-                        <p><span>*Casa: </span>{{item.housename}} <span> <i
-                                    class="fa-solid fa-house link-house"></i></span></p>
+                        <p><span>*Casa: </span>{{item.housename}} <span> <i *ngIf="item.housename != 'Desconocido'"
+                            class="icon-links fa-sharp fa-solid fa-eye"></i></span></p>
                         <!-- Añadir button to link house -->
                     </li>
                     <li class="list-atributes">
-                        <p><span>*Varita: </span>{{item.wanderInfo}} <span> <i
-                                    class="fa-solid fa-bolt link-house"></i></span></p>
+                        <p><span>*Varita: </span>{{item.wanderInfo}} <span> <i *ngIf="item.wanderInfo != 'Desconocido'"
+                            class="icon-links fa-sharp fa-solid fa-eye"></i></span></p>
+                                   
                         <!-- Añadir button to link house -->
                     </li>
                 </ul>
@@ -40,15 +42,15 @@
                 <span class="bibliography-span">*Bibliografia: </span>
                 <p class="bibliography" [innerHTML]="item.bibliography"></p>
             </div>
-                <h2 class="title-members-family">*Miembros de la familia {{familyName}}:</h2>
+                <p *ngIf="membersFamily.length > 0" class="title-members-family">*Miembros de la familia {{familyName}}:</p>
         </div>
     </div>
     <br>
-    <div class="container">
+    <div *ngIf="membersFamily.length > 0" class="container">
         <div class="row column-row">
             <div class="figure col-3" *ngFor="let member of membersFamily">
                 <div class="face-family" style="background-image: url({{member.facemember}});"></div>
-                <a href="http://localhost:4200/desc/{{member.name}}">
+                <a class="links-family" (click)="goDescriptionFromFamily(member.name)">
                     <p class="text-center name-face-color">{{member.name}}</p>
                 </a>
             </div>

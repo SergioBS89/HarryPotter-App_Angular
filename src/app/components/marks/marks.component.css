@@ -1,0 +1,33 @@
+
+
+.container-left, .container-right{
+    height: 150%;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    align-items: center;
+}
+
+.container-left{
+    left: 0;
+
+}
+.container-right{
+    right: 0;
+}
+
+.sticker-mark{
+    width: 150px;
+    height: 300px;
+}
+
+.sticker-mark-objects{
+    width: 150px;
+    height: 150px;
+}
+.sticker-mark-creatures{
+    width: 170px;
+    height: 220px;
+}

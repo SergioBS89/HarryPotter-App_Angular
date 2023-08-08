@@ -11,20 +11,22 @@ import { text } from '@fortawesome/fontawesome-svg-core';
   styleUrls: ['./description.component.css'],
 })
 export class DescriptionComponent {
-
-nameWizard: any;
+  
   constructor(
     private service: WizardService,
     private activeRoute: ActivatedRoute,
     private router: Router
   ) { }
 
-  @Input() description : any
+  @Input()
+  description: any
   wizardList: Wizard[] = [];
   membersFamily: Wizard[] = [];
   age: number = 0
+  isHome: boolean = false
+  nameWizard: any;
+  comeBack: string = 'wizards'
 
-  // TRAER COLOR Y NOMBRE FAMILIA IN ENTITY WIZARD
   ngOnInit(): void {
     let name = this.activeRoute.snapshot.params['name'];
     this.service.findByName(name).subscribe((wizards) => {
@@ -33,26 +35,33 @@ nameWizard: any;
 
       this.service.findFamilyByName(this.wizardList[0].familyname).subscribe(
         response => {
-          let family : any = response          
+          let family: any = response
           family.forEach(member => {
             if (member.name != this.wizardList[0].name) {
               this.membersFamily.push(member)
             }
-            let getEdad = this.wizardList[0].age            
+            let getEdad = this.wizardList[0].age
             this.age = new Date().getFullYear() - getEdad
           });
         })
-    });    
+    });
   }
 
-  //Prueba ir al compo house
+  //Go to house of Hogwarts
   goHouse() {
-    // this.router.navigate([this.wizardList[0].houseurl]);
     this.router.navigate(['/house']);
   }
 
   //Prueba para obetner hipervinculo desde texto
-  goFromText(name : string){
-this.router.navigate(['http://localhost:4200/desc/' + text])
+  goFromText(name: string) {
+    this.router.navigate(['http://localhost:4200/desc/' + text])
+  }
+
+  goDescriptionFromFamily(name:string){
+    this.service.findByName(name).subscribe(wizards => {
+      this.wizardList.pop()
+      this.wizardList.push(wizards);
+      this.router.navigate(['/desc/' + name])
+  })
   }
 }

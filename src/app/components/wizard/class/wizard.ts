@@ -17,7 +17,8 @@ export class Wizard {
     wander_info: string = ""  
     patronus: string = ""  
     mortifago: boolean = false
-    auror: boolean = false
+    teacher: boolean = false
     student: boolean = false
-    wizard: boolean = false
+    others: boolean = false
+    animalsFantastics : boolean = false
 }

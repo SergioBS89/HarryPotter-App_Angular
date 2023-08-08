@@ -10,16 +10,39 @@ import { RouterModule,Routes } from '@angular/router';
 import { DescriptionComponent } from './components/wizard/description/description.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HouseComponent } from './components/house/house.component';
 import { FormsModule } from '@angular/forms';
+import { PaginatorComponent } from './components/paginator/paginator.component';
+import { MarksComponent } from './components/marks/marks.component';
+import { WizardsCategories } from './components/wizard/wizards-categories/wizards-categories.component';
+import { ObjectsComponent } from './components/objects/objects.component';
+import { SearcherComponent } from './components/searcher/searcher.component';
+import { ReproductorComponent } from './components/reproductor/reproductor.component';
 
 const routes : Routes = [
   // {path: '', redirectTo: '/clients', pathMatch: 'full'} THIS IS EXAMPLE TO REDIRECT
+  // Home-routes
   {path: '', component: HomeComponent},
-  {path: 'wizards', component: WizardComponent},
+  {path: 'wiz-list', component: HomeComponent},
+  {path: 'obj-list', component: HomeComponent},
+  {path: 'cre-list', component: HomeComponent},
+  {path: 'pla-list', component: HomeComponent},
+  // Wizards-routes
+  {path: 'wizards/:page', component: WizardComponent},
   {path: 'desc/:name', component: DescriptionComponent},
-  {path: 'house', component: HouseComponent}
-
+  {path: 'mortifagos/:page', component: WizardsCategories},
+  {path: 'ani-fantastics/:page', component: WizardsCategories},
+  {path: 'students/:page', component: WizardsCategories},
+  {path: 'teachers/:page', component: WizardsCategories},
+  {path: 'others/:page', component: WizardsCategories},
+  // Objects-routes
+  {path: 'objects', component: ObjectsComponent},
+  {path: 'horocruxes', component: ObjectsComponent},
+  {path: 'quiddich', component: ObjectsComponent},
+  {path: 'reliques', component: ObjectsComponent},
+  {path: 'magic', component: ObjectsComponent},
+  {path: 'wanders', component: ObjectsComponent},
+  {path: 'others-objects/:page', component: ObjectsComponent}
+  
 ]
 
 @NgModule({
@@ -30,7 +53,12 @@ const routes : Routes = [
     DescriptionComponent,
     HeaderComponent,
     FooterComponent,
-    HouseComponent
+    PaginatorComponent,
+    MarksComponent,
+    WizardsCategories,
+    ObjectsComponent,
+    SearcherComponent,
+    ReproductorComponent
   ],
   imports: [
     BrowserModule,

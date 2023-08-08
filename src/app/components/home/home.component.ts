@@ -10,14 +10,44 @@ import { Wizard } from '../wizard/class/wizard';
 })
 export class HomeComponent {
 
-  constructor(private service: WizardService, private router: Router) {}
+  constructor(private router: Router) { }
 
   wizardList: Wizard[] = [];
   currentRoute: string = '';
+  displaySeccion: string 
 
+
+  ngOnInit(): void {    
+
+    /**
+     * Get the current route to display the correct HTML layout
+     */
+    let route = this.router.url
+
+    switch (route) {
+      case '/':
+        this.displaySeccion = 'home'
+        break;
+      case '/wiz-list':
+        this.displaySeccion = 'wizards-list'
+        break;
+      case '/cre-list':
+        this.displaySeccion = 'creatures-list'
+        break;
+      case '/pla-list':
+        this.displaySeccion = 'places-list'
+        break;
+      case '/obj-list':
+        this.displaySeccion = 'objects-list'
+        break;
+      default:
+        break;
+    }
+  }
 
   //ROUTING
-  seeDescription(url: string) {
-    this.router.navigate(['/desc/' + url]);
+  goTo(url: string) {
+    this.router.navigate(['/' + url]);
   }
+
 }

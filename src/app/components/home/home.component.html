@@ -1,1 +1,211 @@
-<div class="background"></div>
+<app-header></app-header>
+<div *ngIf="displaySeccion == 'home'" class="background">
+    <div class="container" style="margin-top: 60px;">
+        <div class="row">
+            <div class="col-xxl-1 col-xl-1 col-md-1 col-sm-12 ">
+            </div>
+            <div class="col-xxl-3 col-xl-4 col-md-4 col-sm-12 " style="position: relative;">
+                <div class="card-box" (click)="goTo('wiz-list')">
+                    <div class="box-front text-center">
+                        <div class="container-sticker"
+                            style="background-image: url(../../../assets/img/stickers/home/wizards.png);">
+                        </div>
+                        <h3 class="text-cards">Personajes</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-4 col-xl-3 col-md-2 col-sm-12 ">
+            </div>
+            <div class="col-xxl-3 col-xl-4 col-md-4 col-sm-12 ">
+                <div class="card-box" (click)="goTo('obj-list')">
+                    <div class="box-front text-center" style="position: relative;">
+                        <div class="container-sticker"
+                            style="background-image: url(../../../assets/img/stickers/home/objects.png);">
+                        </div>
+                        <h3 class="text-cards">Objetos Magicos</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-1 col-xl-1 col-md-1 col-sm-12 "></div>
+            <div class="col-xxl-1 col-xl-1 col-md-1 col-sm-12 ">
+            </div>
+            <div class="col-xxl-3 col-xl-4 col-md-4 col-sm-12 " style="position: relative;">
+                <div class="card-box" (click)="goTo('places')">
+                    <div class="box-front text-center">
+                        <div class="container-sticker"
+                            style="background-image: url(../../../assets/img/stickers/home/places.png);">
+                        </div>
+                        <h3 class="text-cards">Lugares</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xxl-4 col-xl-3 col-md-2 col-sm-12 ">
+            </div>
+            <div class="col-xxl-3 col-xl-4 col-md-4 col-sm-12 " style="position: relative;">
+                <div class="card-box" (click)="goTo('creatures')">
+                    <div class="box-front text-center">
+                        <div class="container-sticker"
+                            style="background-image: url(../../../assets/img/stickers/home/creatures.png);">
+                        </div>
+                        <h3 class="text-cards">Criaturas</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- HOME PART SECTION WIZARDS -->
+<div *ngIf="displaySeccion == 'wizards-list'" class="background">
+    <div class="container" style="margin-top: 60px;">
+        <div class="row">
+            <div class="col-xxl-3 col-xl-4 col-md-4 col-sm-12 " style="position: relative;">
+                <div class="card-box" (click)="goTo('wizards/0')">
+                    <div class="box-front text-center">
+                        <div class="container-sticker"
+                            style="background-image: url(../../../assets/img/stickers/home/list-wizards.png); transform: translateX(120px);">
+                        </div>
+                        <h3 class="text-cards">Lista Completa</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xxl-1 col-xl-1 col-md-1 col-sm-12 "></div>
+
+            <div class="col-xxl-3 col-xl-4 col-md-4 col-sm-12 " style="position: relative;">
+                <div class="card-box" (click)="goTo('teachers/0')">
+                    <div class="box-front text-center">
+                        <div class="container-sticker"
+                            style="background-image: url(../../../assets/img/stickers/home/students.png); transform: translateX(100px);">
+                        </div>
+                        <h3 class="text-cards">Profesores</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xxl-1 col-xl-3 col-md-2 col-sm-12 "></div>
+
+            <div class="col-xxl-3 col-xl-4 col-md-4 col-sm-12 ">
+                <div class="card-box" (click)="goTo('mortifagos/0')">
+                    <div class="box-front text-center" style="position: relative;">
+                        <div class="container-sticker"
+                            style="background-image: url(../../../assets/img/stickers/home/mortifagos.png); transform: translateX(150px);">
+                        </div>
+                        <h3 class="text-cards">Mortifagos</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xxl-1 col-xl-1 col-md-1 col-sm-12 "></div>
+            <div class="col-xxl-1 col-xl-1 col-md-1 col-sm-12 "></div>
+
+            <div class="col-xxl-3 col-xl-4 col-md-4 col-sm-12 " style="position: relative;">
+                <div class="card-box" (click)="goTo('ani-fantastics/0')">
+                    <div class="box-front text-center">
+                        <div class="container-sticker"
+                            style="background-image: url(../../../assets/img/stickers/home/creatures2.png);">
+                        </div>
+                        <h3 class="text-cards">Animales Fantasticos</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xxl-1 col-xl-3 col-md-2 col-sm-12 "></div>
+
+            <div class="col-xxl-3 col-xl-4 col-md-4 col-sm-12 " style="position: relative;">
+                <div class="card-box" (click)="goTo('students/0')">
+                    <div class="box-front text-center">
+                        <div class="container-sticker"
+                            style="background-image: url(../../../assets/img/stickers/home/wizards2.png);">
+                        </div>
+                        <h3 class="text-cards">Estudiantes</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xxl-1 col-xl-3 col-md-2 col-sm-12 "></div>
+
+            <div class="col-xxl-3 col-xl-4 col-md-4 col-sm-12 " style="position: relative;">
+                <div class="card-box" (click)="goTo('others/0')">
+                    <div class="box-front text-center">
+                        <div class="container-sticker"
+                            style="background-image: url(../../../assets/img/stickers/home/otros.png);">
+                        </div>
+                        <h3 class="text-cards">Otros Magos</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- HOME PART SECTION OBJECTS -->
+<div *ngIf="displaySeccion == 'objects-list'" class="background">
+    <div class="container" style="margin-top: 60px;">
+        <div class="row">
+            <div class="col-xxl-3 col-xl-4 col-md-4 col-sm-12 ">
+                <div class="card-box" (click)="goTo('reliques')">
+                    <div class="box-front text-center" style="position: relative;">
+                        <div class="container-sticker"
+                            style="background-image: url(../../../assets/img/stickers/home/reliques.png); transform: translateX(100px);">
+                        </div>
+                        <h3 class="text-cards">Reliquias</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xxl-1 col-xl-1 col-md-1 col-sm-12 "></div>
+
+            <div class="col-xxl-3 col-xl-4 col-md-4 col-sm-12 " style="position: relative;">
+                <div class="card-box" (click)="goTo('wanders')">
+                    <div class="box-front text-center">
+                        <div class="container-sticker"
+                            style="background-image: url(../../../assets/img/stickers/home/magos.png);">
+                        </div>
+                        <h3 class="text-cards">Varitas</h3>
+                    </div>
+                </div>
+            </div>           
+
+            <div class="col-xxl-1 col-xl-3 col-md-2 col-sm-12 "></div>
+
+            <div class="col-xxl-3 col-xl-4 col-md-4 col-sm-12 " style="position: relative;">
+                <div class="card-box" (click)="goTo('quiddich')">
+                    <div class="box-front text-center">
+                        <div class="container-sticker"
+                            style="background-image: url(../../../assets/img/stickers/home/quiddich2.png);">
+                        </div>
+                        <h3 class="text-cards">Quddich</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xxl-1 col-xl-1 col-md-1 col-sm-12 "></div>
+            <div class="col-xxl-1 col-xl-1 col-md-1 col-sm-12 "></div>
+
+          
+            <div class="col-xxl-3 col-xl-4 col-md-4 col-sm-12 " style="position: relative;">
+                <div class="card-box" (click)="goTo('horocruxes')">
+                    <div class="box-front text-center">
+                        <div class="container-sticker"
+                            style="background-image: url(../../../assets/img/stickers/home/horocruxes.png);">
+                        </div>
+                        <h3 class="text-cards">Horocruxes</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xxl-1 col-xl-3 col-md-2 col-sm-12 "></div>
+
+            <div class="col-xxl-3 col-xl-4 col-md-4 col-sm-12 " style="position: relative;">
+                <div class="card-box" (click)="goTo('others-objects/0')">
+                    <div class="box-front text-center">
+                        <div class="container-sticker"
+                            style="background-image: url(../../../assets/img/stickers/home/magic-objects.png);">
+                        </div>
+                        <h3 class="text-cards">Objectos Magicos</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

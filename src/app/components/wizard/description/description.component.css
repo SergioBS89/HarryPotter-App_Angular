@@ -1,10 +1,11 @@
 
 .background{
-    background-image: url(../../../../assets/img/fondo_desc_wiz.jpg);
+    background-image: url(../../../../assets/img/backgrounds/houses.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     padding-top: 150px;
+
 }
 
 .container-img-desc{
@@ -14,14 +15,11 @@
     background-repeat: no-repeat;
     background-size: cover;
     margin-left: 12px;
-    border: solid 10px rgba(0, 0, 0, 0.733);
 }
+
 
 .container-text-desc{
     margin-top: 20px;
-    /* background-color: rgba(0, 0, 0, 0.363);
-    border-radius: 10%; */
-    padding: 20px;
     margin-left: 30px;        
 }
 
@@ -32,7 +30,7 @@ li{
 
 /* Name wizard */
 .container-text-desc h1{
-    background-color: rgba(0, 0, 0, 0.747);
+    background-color: rgba(0, 0, 0, 0.836);
     border-radius: 10px;
     display: inline;
     padding: 0 20px;
@@ -52,7 +50,7 @@ li{
     font-size: 20px;
     color: rgb(255, 255, 255);
     font-family: 'Trebuchet MS', sans-serif;
-    background-color: rgba(0, 0, 0, 0.363);
+    background-color: rgba(0, 0, 0, 0.747);
     border-radius: 10%;
     display: inline;
     padding: 4px;
@@ -70,22 +68,29 @@ li{
     color: rgb(255, 255, 255);
 }
 
+
+
+/* Styles of family */
+
 .title-members-family{    
     padding: 0;
     font-family: 'Carter One';
-    color: rgb(218, 124, 61);
+    font-size: 22px;
+    color:  rgb(243, 199, 103);
     background-color: rgba(0, 0, 0, 0.747);
     border-radius: 5%;
-    display: inline;
     padding: 5px;
-    /* color: rgb(129, 19, 4); */
+    margin-top: 20px;
+    display: inline;
+    width: auto;
 }
+
 .figure{    
     height: 200px;
     width: 200px;
     border-radius: 50%;
     position: relative;
-    border: solid 2px rgba(0, 0, 0, 0.733); 
+    border: solid 2px rgba(0, 0, 0, 0.384); 
     margin-right: 50px;
     margin-bottom: 40px;
 }
@@ -110,45 +115,46 @@ li{
 }
 .name-face-color{
     color: rgb(255, 250, 250);
+    cursor: pointer;
 }
 .name-face-color:hover{
-    color: rgb(226, 147, 94);
+    color: rgb(100, 142, 196);
 }
 
-.link-house{
+/*Styles of icons */
+.icon-links{
     cursor: pointer;
     color: rgb(216, 104, 30);
     font-size: large;
 }
-
-.link-house:hover{
+.icon-links:hover{
     transform: scale(1.2);
-    color: blueviolet;
+    color: rgb(238, 211, 91);
 }
 
+/*Titles colors*/
 .green{
-    color: rgb(31, 121, 14);
-    border-radius: 100%;
+    color: rgb(34, 143, 41);
     padding: 3px;
 }
 .red{
-    color: rgb(194, 34, 34);
-    border-radius: 100%;
+    color: rgb(151, 11, 11);
     padding: 3px;
 }
 .gray{
     color: rgb(129, 90, 127);
-    border-radius: 100%;
     padding: 3px;
 }
 .blue{
     color: rgb(38, 56, 212);
-    border-radius: 100%;
     padding: 3px;
 }
 .yellow{
     color: rgb(230, 195, 3);
-    border-radius: 100%;
+    padding: 3px;
+}
+.orange{
+    color: rgb(255, 140, 8);
     padding: 3px;
 }
 

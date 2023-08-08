@@ -1,0 +1,21 @@
+.container-paginator{
+    position: absolute;
+    right: 50%;
+    transform: translate(50%, -50px);
+    margin-bottom: 100px;
+    height: 150px;
+}
+
+.page-link{
+    background-color: rgb(212, 134, 16);
+    text-decoration: none;
+    color: blanchedalmond;
+    border: 1px solid rgba(0, 0, 0, 0);
+    margin: 0 20px;
+}
+
+.page-link:hover, .page-link:active, .page-link:focus{
+    color: inherit;
+    background-color: rgb(133, 78, 7);
+}
+

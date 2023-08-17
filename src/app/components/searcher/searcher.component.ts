@@ -14,7 +14,6 @@ export class SearcherComponent {
 
   searchingWizard(){
     this.sendNameSearcher.emit(this.searcher)
-  
   }
 
 }

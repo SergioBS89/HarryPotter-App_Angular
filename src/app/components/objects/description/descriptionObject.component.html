@@ -1,0 +1,28 @@
+<app-header [isHome]="isHome" [comeBack]="comeBack"></app-header>
+<div class="background">
+    <div class="container">
+        <div class="row" *ngFor="let item of objectList">
+            <div class="box container-img-desc col-xl-3 col-lg-5 col-sm-12"
+                style="background-image: url({{item.picture}}); float: left;"></div>
+            <div class="container-text-desc col ">
+                <ul>
+                    <li style="list-style: none;">
+                        <h1 class="wander-title">{{item.name}}</h1>
+                    </li>
+                    <br>
+                    <br>
+                    <li>
+                        <div class="container-bibliography">
+                            <span class="bibliography-span">*Informacíon: </span>
+                            <p class="bibliography" [innerHTML]="item.info"></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+</div>

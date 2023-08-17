@@ -1,5 +1,5 @@
 <app-header [isHome]="isHome" [comeBack]="comeBack" ></app-header>
-<div class="background">
+<div id="background" class="background">
     <app-searcher (sendNameSearcher)="searchWizard($event)"></app-searcher>
     <div class="container" style="margin-top: 30px;">
         <div class="row">
@@ -20,7 +20,7 @@
                 </div>
             </div>
             <!-- Important to ask if paginator has been inject (asinchronous comunication) -->
-            <app-paginator *ngIf="paginator" [paginator]="paginator" [screen]="currentScreen"></app-paginator>
+            <app-paginator *ngIf="paginator && paginatorActive" [paginator]="paginator" [currentScreen]="currentScreen"></app-paginator>
         </div>
     </div>
 </div>

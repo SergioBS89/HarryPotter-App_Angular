@@ -26,14 +26,14 @@
                         <p><span>*Patronus: </span>{{item.patronus}}</p>
                     </li>
                     <li class="list-atributes">
-                        <p><span>*Casa: </span>{{item.housename}} <span> <i *ngIf="item.housename != 'Desconocido'"
-                            class="icon-links fa-sharp fa-solid fa-eye"></i></span></p>
+                        <p><span>*Casa: </span>{{item.housename}} <span> <i *ngIf="displayIconsHouseAndWander(item.housename)"
+                                    class="icon-links fa-sharp fa-solid fa-eye"></i></span></p>
                         <!-- Añadir button to link house -->
                     </li>
                     <li class="list-atributes">
-                        <p><span>*Varita: </span>{{item.wanderInfo}} <span> <i *ngIf="item.wanderInfo != 'Desconocido'"
-                            class="icon-links fa-sharp fa-solid fa-eye"></i></span></p>
-                                   
+                        <p><span>*Varita: </span>{{item.wanderInfo}} <span> <i *ngIf="displayIconsHouseAndWander(item.wanderInfo)"
+                                    class="icon-links fa-sharp fa-solid fa-eye"></i></span></p>
+
                         <!-- Añadir button to link house -->
                     </li>
                 </ul>
@@ -42,15 +42,15 @@
                 <span class="bibliography-span">*Bibliografia: </span>
                 <p class="bibliography" [innerHTML]="item.bibliography"></p>
             </div>
-                <p *ngIf="membersFamily.length > 0" class="title-members-family">*Miembros de la familia {{familyName}}:</p>
+            <p *ngIf="membersFamily.length > 0" class="title-members-family">*Miembros de la familia {{familyName}}:</p>
         </div>
     </div>
     <br>
     <div *ngIf="membersFamily.length > 0" class="container">
         <div class="row column-row">
             <div class="figure col-3" *ngFor="let member of membersFamily">
-                <div class="face-family" style="background-image: url({{member.facemember}});"></div>
-                <a class="links-family" (click)="goDescriptionFromFamily(member.name)">
+                <div class="face-family" style="background-image: url({{member.facemember}});" (click)="displayDescriptionFromFamily(member.name)"></div>
+                <a class="links-family" >
                     <p class="text-center name-face-color">{{member.name}}</p>
                 </a>
             </div>

@@ -4,3 +4,7 @@ audio{
     bottom: 80px;
     width: 150px;
 }
+
+audio:hover{
+    width: 300px;
+}

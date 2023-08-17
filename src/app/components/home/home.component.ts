@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { WizardService } from '../wizard/service/wizard-service';
 import { Router } from '@angular/router';
-import { Wizard } from '../wizard/class/wizard';
+import { GeneralEnum } from 'src/app/whole-project/general.enum';
 
 @Component({
   selector: 'app-home',
@@ -12,40 +11,54 @@ export class HomeComponent {
 
   constructor(private router: Router) { }
 
-  wizardList: Wizard[] = [];
-  currentRoute: string = '';
-  displaySeccion: string 
+   /**
+   * Routes for function go()
+   */
+   wizardsCategories = GeneralEnum.WIZARDS_CATEGORIES
+   objectsCategories = GeneralEnum.OBJECTS_CATEGORIES
+   creaturesCategories = GeneralEnum.CREATURES_CATEGORIES
+   placesCategories = GeneralEnum.PLACES_CATEGORIES
 
-
-  ngOnInit(): void {    
+  /**
+   * Variables to display HTML screens
+   */
+  displayHomeMainScreen: boolean;
+  displayWizardHomeScreen: boolean;
+  displayObjectsHomeScreen: boolean;
+  displayCreaturesHomeScreen: boolean;
+  displayPlacesHomeScreen: boolean;
+ 
+  ngOnInit(): void {
 
     /**
-     * Get the current route to display the correct HTML layout
+     * Get the current route and set the value as true of the correct HTML
      */
-    let route = this.router.url
-
-    switch (route) {
+ 
+    switch (this.router.url) {
       case '/':
-        this.displaySeccion = 'home'
+        this.displayHomeMainScreen = true
         break;
-      case '/wiz-list':
-        this.displaySeccion = 'wizards-list'
+      case '/' + this.wizardsCategories:
+        this.displayWizardHomeScreen = true
         break;
-      case '/cre-list':
-        this.displaySeccion = 'creatures-list'
+      case '/' + this.creaturesCategories:
+        this.displayCreaturesHomeScreen = true
         break;
-      case '/pla-list':
-        this.displaySeccion = 'places-list'
+      case '/' + this.placesCategories:
+        this.displayPlacesHomeScreen = true
         break;
-      case '/obj-list':
-        this.displaySeccion = 'objects-list'
+      case '/' + this.objectsCategories:
+        this.displayObjectsHomeScreen = true
         break;
       default:
         break;
     }
   }
 
-  //ROUTING
+  /**
+   * Function to navigate to differents routes
+   * @param url 
+   */
   goTo(url: string) {
     this.router.navigate(['/' + url]);
   }

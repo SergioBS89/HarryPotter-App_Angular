@@ -13,7 +13,8 @@ label {
   
   input{
     border: 2px solid rgb(212, 134, 16);
-    background-color: rgb(243, 230, 170);
+    background-color: rgba(243, 230, 170, 0.507);
+    color: white;
   }
 
   .button-search{
@@ -31,5 +32,9 @@ label {
     font-size: 25px;
     color: rgb(212, 134, 16); 
     cursor: pointer;
+  }
+
+  .icon-search:hover{
+    color: rgb(252, 233, 204);
   }
   

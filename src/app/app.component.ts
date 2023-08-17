@@ -6,7 +6,4 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styles: ['body { background-color: black;}']
 })
 export class AppComponent {
-  title = 'api-harry-potter';
-  // @Input()
-  // isHome : any;
 }

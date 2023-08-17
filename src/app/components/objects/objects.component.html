@@ -11,18 +11,37 @@
                             <i id="color-arrow" class="fa-solid fa-circle-right flip-box-arrow {{item.color}}"></i>
                         </div>
                     </div>
-                    <div class="flip-box-back text-center" style="background-image: url(../../../assets/img/houses/objects6.jpg);">
+                    <div *ngIf="backcardWander" class="flip-box-back text-center" style="background-image: url({{item.backcard}});">
                         <div class="inner color-text">
-                            <button class="flip-box-button" (click)="seeDescription(item.name)">Más información</button>
+                            <button class="flip-box-button" (click)="seeDescription(item.name, 'wanders')">Más información</button>
+                        </div>
+                    </div>
+                    <div *ngIf="backcardHorocrux" class="flip-box-back text-center" style="background-image: url({{item.backcard}});">
+                        <div class="inner color-text">
+                            <button class="flip-box-button" (click)="seeDescription(item.name, 'horocruxes')">Más información</button>
+                        </div>
+                    </div>
+                    <div *ngIf="backcardReliques" class="flip-box-back text-center" style="background-image: url({{item.backcard}});">
+                        <div class="inner color-text">
+                            <button class="flip-box-button" (click)="seeDescription(item.name, 'reliques')">Más información</button>
+                        </div>
+                    </div>
+                    <div *ngIf="backcardQuiddich" class="flip-box-back text-center" style="background-image: url({{item.backcard}});">
+                        <div class="inner color-text">
+                            <button class="flip-box-button" (click)="seeDescription(item.name, 'quiddich')">Más información</button>
+                        </div>
+                    </div>
+                    <div *ngIf="backcardOthers" class="flip-box-back text-center" style="background-image: url({{item.backcard}});">
+                        <div class="inner color-text">
+                            <button class="flip-box-button" (click)="seeDescription(item.name, 'others-objects')">Más información</button>
                         </div>
                     </div>
                 </div>
             </div>
              <!-- Important to ask if paginator has been inject (asinchronous comunication) -->
-             <app-paginator *ngIf="paginator" [paginator]="paginator" [screen]="currentScreen"></app-paginator>
+             <app-paginator *ngIf="paginator" [paginator]="paginator" [currentScreen]="currentScreen"></app-paginator>
         </div>
     </div>
 </div>
 <br>
 <br>
-<!-- <img src="../../../assets/img/objects/reliquias/varita-sauco.jpg" alt=""> -->

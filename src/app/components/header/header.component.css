@@ -5,8 +5,8 @@
     padding-top: 20px;
 }
 
-a{
-    cursor: pointer;
+button:disabled{
+    color: rgba(0, 0, 0, 0.781);
 }
 
 .container-logo{

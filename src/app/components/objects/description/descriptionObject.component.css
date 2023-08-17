@@ -1,0 +1,68 @@
+
+.background{
+    background-image: url(../../../../assets/img/backgrounds/desc-obj.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 150px;
+
+}
+
+.container-img-desc{
+    height: 680px;
+    width: 450px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 12px;
+}
+
+
+.container-text-desc{
+    margin-top: 20px;
+    margin-left: 30px;        
+}
+
+li{
+    list-style: none;  
+    margin-bottom: 5px;
+}
+
+/* Name wizard */
+.container-text-desc h1{
+    border-radius: 10px;
+    display: inline;
+    padding: 0 20px;
+    font-family: 'Carter One', cursive; 
+    font-weight: lighter; 
+    font-size: 65px;
+    color: wheat;
+    background-color: rgba(0, 0, 0, 0.466);
+}
+
+/* List with atributes */
+.container-text-desc p span, .bibliography-span{
+    font-size: 30px;
+    color: rgb(224, 1, 1);
+    font-family: 'Carter One';
+    margin-right: 5px;
+    display: block;
+}
+
+
+.container-bibliography{
+    width: 100%;
+    text-align: justify;
+    background-color: rgba(0, 0, 0, 0.466);
+    padding: 20px;
+}
+
+.container-text-desc p{
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    font-family: 'Trebuchet MS', sans-serif;
+    border-radius: 10%;
+    display: inline;
+    padding: 4px;
+}
+

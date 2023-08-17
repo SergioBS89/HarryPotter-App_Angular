@@ -2,8 +2,8 @@ import { Component, Input, SimpleChanges } from '@angular/core';
 import { WizardService } from '../service/wizard-service';
 import { Wizard } from '../class/wizard';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Family } from '../class/family';
 import { text } from '@fortawesome/fontawesome-svg-core';
+import { GeneralEnum } from 'src/app/whole-project/general.enum';
 
 @Component({
   selector: 'app-description',
@@ -11,7 +11,7 @@ import { text } from '@fortawesome/fontawesome-svg-core';
   styleUrls: ['./description.component.css'],
 })
 export class DescriptionComponent {
-  
+
   constructor(
     private service: WizardService,
     private activeRoute: ActivatedRoute,
@@ -25,7 +25,7 @@ export class DescriptionComponent {
   age: number = 0
   isHome: boolean = false
   nameWizard: any;
-  comeBack: string = 'wizards'
+  comeBack: GeneralEnum = GeneralEnum.COMEBACK_WIZARDS_DESC
 
   ngOnInit(): void {
     let name = this.activeRoute.snapshot.params['name'];
@@ -40,28 +40,44 @@ export class DescriptionComponent {
             if (member.name != this.wizardList[0].name) {
               this.membersFamily.push(member)
             }
-            let getEdad = this.wizardList[0].age
-            this.age = new Date().getFullYear() - getEdad
+            let getAge = this.wizardList[0].age
+            this.age = new Date().getFullYear() - getAge
           });
         })
     });
   }
 
-  //Go to house of Hogwarts
-  goHouse() {
-    this.router.navigate(['/house']);
-  }
 
   //Prueba para obetner hipervinculo desde texto
   goFromText(name: string) {
     this.router.navigate(['http://localhost:4200/desc/' + text])
   }
 
-  goDescriptionFromFamily(name:string){
-    this.service.findByName(name).subscribe(wizards => {
-      this.wizardList.pop()
+  /**
+   * Display the family members info in the description screen
+   */
+  displayDescriptionFromFamily(memberName: string) {
+    this.service.findByName(memberName).subscribe(wizards => {
+      let oldWizard = this.wizardList.pop()
       this.wizardList.push(wizards);
-      this.router.navigate(['/desc/' + name])
-  })
+      this.membersFamily.push(oldWizard)
+      //It filters from an array of wizards who wizards are different to the current one display in description
+      this.membersFamily = this.membersFamily.filter(wiz => wiz.name != wizards.name)
+
+      window.scroll({
+        top: 100,
+        behavior: "smooth",
+      });
+    })
+  }
+
+  displayIconsHouseAndWander(item: String): boolean {
+    if (item == 'Desconocido') {
+      return false
+    } else if (item == 'Desconocida') {
+      return false
+    } else {
+      return true
+    }
   }
 }

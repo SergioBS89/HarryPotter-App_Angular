@@ -34,8 +34,8 @@
 }
 
 .box-front:hover {
-    transform: scale(1.05);
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.911) 30%, rgba(130, 130, 130, 0.87) 100%);
+    transform: scale(1.02);
+    background: radial-gradient(circle, rgb(255, 255, 255) 30%, rgba(130, 130, 130, 0.87) 100%);
 }
 
 .container-sticker {

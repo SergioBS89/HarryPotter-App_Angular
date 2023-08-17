@@ -12,36 +12,45 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { PaginatorComponent } from './components/paginator/paginator.component';
-import { MarksComponent } from './components/marks/marks.component';
-import { WizardsCategories } from './components/wizard/wizards-categories/wizards-categories.component';
 import { ObjectsComponent } from './components/objects/objects.component';
 import { SearcherComponent } from './components/searcher/searcher.component';
 import { ReproductorComponent } from './components/reproductor/reproductor.component';
+import { DescriptionObjectComponent } from './components/objects/description/descriptionObject.component';
+import { CreaturesComponent } from './components/creatures/creatures.component';
 
 const routes : Routes = [
   // {path: '', redirectTo: '/clients', pathMatch: 'full'} THIS IS EXAMPLE TO REDIRECT
   // Home-routes
   {path: '', component: HomeComponent},
-  {path: 'wiz-list', component: HomeComponent},
-  {path: 'obj-list', component: HomeComponent},
-  {path: 'cre-list', component: HomeComponent},
-  {path: 'pla-list', component: HomeComponent},
+  {path: 'wiz-cat', component: HomeComponent},
+  {path: 'obj-cat', component: HomeComponent},
+  {path: 'cre-cat', component: HomeComponent},
+  {path: 'pla-cat', component: HomeComponent},
   // Wizards-routes
   {path: 'wizards/:page', component: WizardComponent},
   {path: 'desc/:name', component: DescriptionComponent},
-  {path: 'mortifagos/:page', component: WizardsCategories},
-  {path: 'ani-fantastics/:page', component: WizardsCategories},
-  {path: 'students/:page', component: WizardsCategories},
-  {path: 'teachers/:page', component: WizardsCategories},
-  {path: 'others/:page', component: WizardsCategories},
+  {path: 'mortifagos/:page', component: WizardComponent},
+  {path: 'ani-fantastics/:page', component: WizardComponent},
+  {path: 'students/:page', component: WizardComponent},
+  {path: 'teachers/:page', component: WizardComponent},
+  {path: 'others/:page', component: WizardComponent},
   // Objects-routes
-  {path: 'objects', component: ObjectsComponent},
   {path: 'horocruxes', component: ObjectsComponent},
   {path: 'quiddich', component: ObjectsComponent},
   {path: 'reliques', component: ObjectsComponent},
   {path: 'magic', component: ObjectsComponent},
-  {path: 'wanders', component: ObjectsComponent},
-  {path: 'others-objects/:page', component: ObjectsComponent}
+  {path: 'wanders/:page', component: ObjectsComponent},
+  {path: 'others-objects/:page', component: ObjectsComponent},
+  {path: 'desc-wan/:name', component: DescriptionObjectComponent},
+  {path: 'desc-hor/:name', component: DescriptionObjectComponent},
+  {path: 'desc-qui/:name', component: DescriptionObjectComponent},
+  {path: 'desc-oth/:name', component: DescriptionObjectComponent},
+  {path: 'desc-rel/:name', component: DescriptionObjectComponent},
+   // Creatures-routes
+   {path: 'creatures/:page', component: CreaturesComponent},
+   {path: 'no-danger', component: CreaturesComponent},
+   {path: 'danger', component: CreaturesComponent},
+  //  {path: 'desc-creatures/:name', component: DescriptionObjectComponent}
   
 ]
 
@@ -54,11 +63,11 @@ const routes : Routes = [
     HeaderComponent,
     FooterComponent,
     PaginatorComponent,
-    MarksComponent,
-    WizardsCategories,
     ObjectsComponent,
     SearcherComponent,
-    ReproductorComponent
+    ReproductorComponent,
+    DescriptionObjectComponent,
+    CreaturesComponent
   ],
   imports: [
     BrowserModule,

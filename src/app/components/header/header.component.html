@@ -3,31 +3,50 @@
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
         <!--go Home -->
         <li class="nav-item" routerLinkActive="activo">
-          <a class="nav-link" aria-current="page" (click)="goTo('/')"><i class="fa-solid fa-house"></i></a>
+          <a class="nav-link" aria-current="page" (click)="goTo('/', false)"><i class="fa-solid fa-house"></i></a>
         </li>
-        <!-- ShortCuts -->
-        <li *ngIf="isHome != true && comeBack != 'wizards'" class="nav-item" style="position: absolute; right: 15px;"
-          routerLinkActive="activo">
-          <a class="nav-link" aria-current="page" (click)="goTo('wizards/0')"><i class="fa-solid fa-bolt"></i></a>
+
+        <!-- ShortCuts to navigate to another components (wizard-Objects-Creatures-Places)-->
+        <li *ngIf="!isHome" class="nav-item" style="position: absolute; right: 15px;" routerLinkActive="activo">
+          <button class="nav-link" [disabled]="comeBack == wizardScreenDescActive || comeBack == wizardScreenActive" (click)="goTo(goToWizardsCategories)"><i class="fa-solid fa-bolt"></i></button>
         </li>
-        <li *ngIf="isHome != true" class="nav-item" style="position: absolute; right: 40px;" routerLinkActive="activo">
-          <a class="nav-link" aria-current="page" (click)="goTo('house')"><i class="fa-solid fa-globe"></i></a>
+
+        <li *ngIf="!isHome" class="nav-item" style="position: absolute; right: 90px;" routerLinkActive="activo">
+          <button class="nav-link" [disabled]="comeBack == objectsScreenDescActive || comeBack == objectsScreenActive" (click)="goTo(goToObjectsCategories)"><i class="fa-solid fa-flask"></i></button>
         </li>
-        <li *ngIf="isHome != true" class="nav-item" style="position: absolute; right: 65px;" routerLinkActive="activo">
-          <a class="nav-link" aria-current="page" (click)="goTo('house')"><i class="fa-solid fa-paw"></i></a>
+
+        <li *ngIf="!isHome" class="nav-item" style="position: absolute; right: 40px;" routerLinkActive="activo">
+          <button class="nav-link" [disabled]="comeBack == creaturesScreenDescActive || comeBack == creaturesScreenActive" (click)="goTo(goToCreaturesCategories)"><i class="fas fa-paw"></i></button>
         </li>
-        <li *ngIf="isHome != true && comeBack != 'objects'" class="nav-item" style="position: absolute; right: 90px;" routerLinkActive="activo">
-          <a class="nav-link" aria-current="page" (click)="goTo('others-objects/0')"><i class="fa-solid fa-flask"></i></a>
-        </li>
-        <!-- Button back -->
-        <li *ngIf="comeBack == 'wizards'" routerLinkActive="activo">
-          <a class="nav-link" aria-current="page" (click)="goTo('/wiz-list')"><i
+
+        <!-- Button back from list -->
+        <li *ngIf="comeBack == wizardScreenActive" routerLinkActive="activo">
+          <a class="nav-link" aria-current="page" (click)="goTo(goToWizardsCategories)"><i
               class="fa-solid fa-backward-step"></i></a>
         </li>
-        <li *ngIf="comeBack == 'objects'" routerLinkActive="activo">
-          <a class="nav-link" aria-current="page" (click)="goTo('/obj-list')"><i
+        <li *ngIf="comeBack == objectsScreenActive" routerLinkActive="activo">
+          <a class="nav-link" aria-current="page" (click)="goTo(goToObjectsCategories)"><i
+              class="fa-solid fa-backward-step"></i></a>
+        </li>
+        <li *ngIf="comeBack == creaturesScreenActive" routerLinkActive="activo">
+          <a class="nav-link" aria-current="page" (click)="goTo(goToCreaturesCategories)"><i
+              class="fa-solid fa-backward-step"></i></a>
+        </li>
+
+        <!-- Button back from Description screen-->
+        <li *ngIf="comeBack == wizardScreenDescActive" routerLinkActive="activo">
+          <a class="nav-link" aria-current="page" (click)="goTo('',true)"><i
+              class="fa-solid fa-backward-step"></i></a>
+        </li>
+        <li *ngIf="comeBack == objectsScreenDescActive" routerLinkActive="activo">
+          <a class="nav-link" aria-current="page" (click)="goTo('',true)"><i
+              class="fa-solid fa-backward-step"></i></a>
+        </li>
+        <li *ngIf="comeBack == creaturesScreenDescActive" routerLinkActive="activo">
+          <a class="nav-link" aria-current="page" (click)="goTo('',true)"><i
               class="fa-solid fa-backward-step"></i></a>
         </li>
       </ul>

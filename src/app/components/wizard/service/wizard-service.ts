@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Wizard } from '../class/wizard';
 import { Family } from '../class/family';
+import { GeneralEnum } from 'src/app/whole-project/general.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -11,75 +12,62 @@ export class WizardService {
 
   constructor(private http: HttpClient) { }
 
-  private urlEnpointWizards = "http://localhost:8080/wizards/"
+  /**
+   * Wizards categories
+   */
+  allWizardsCategory = GeneralEnum.WIZARDS
+  teachersCategory = GeneralEnum.TEACHERS
+  studentsCategory = GeneralEnum.STUDENTS
+  mortifagosCategory = GeneralEnum.MORTIFAGOS
+  otherWizardsCategory = GeneralEnum.OTHERS_WIZ
+  animalsFantasticsCategory = GeneralEnum.ANIMALS_FANTASTICS
+
+
+  private urlEnpointWizards : string;
   private urlEnpointFamily = "http://localhost:8080/wizards/family"
 
-  urlArray:string[]=[] //This array save all the routes 
+  findAll(page: number, category: GeneralEnum): Observable<any> {
 
-  findAll(page : number): Observable<any> {
+    switch (category) {
+      case this.allWizardsCategory:
+        this.urlEnpointWizards = "http://localhost:8080/wizards/pages/"
+        break;
+      case this.animalsFantasticsCategory:
+        this.urlEnpointWizards = "http://localhost:8080/wizards/animals/"
+        break;
+      case this.otherWizardsCategory:
+        this.urlEnpointWizards = "http://localhost:8080/wizards/others/"
+        break;
+      case this.mortifagosCategory:
+        this.urlEnpointWizards = "http://localhost:8080/wizards/mortifagos/"
+        break;
+      case this.studentsCategory:
+        this.urlEnpointWizards = "http://localhost:8080/wizards/students/"
+        break;
+      case this.teachersCategory:
+        this.urlEnpointWizards = "http://localhost:8080/wizards/teachers/"
+        break;
+      default:
+        break;
+    }
     return this.http
-      .get(this.urlEnpointWizards + 'pages/' + page)
+      .get(this.urlEnpointWizards + page)
       .pipe(
-        map((response : any) => {
+        map((response: any) => {
           return response as Wizard[]
         }));
   }
 
-  findByName(name: string) : Observable<Wizard>{
-    return this.http.get<Wizard>(this.urlEnpointWizards + name)
+  findByName(name: string): Observable<Wizard> {
+    return this.http.get<Wizard>('http://localhost:8080/wizards/' + name)
   }
 
-  findAllCoincidences(name: string) : Observable<any>{
-    return this.http.get<Wizard>(this.urlEnpointWizards + 'searching/' + name)
+  findAllCoincidences(name: string): Observable<any> {
+    return this.http.get<Wizard>('http://localhost:8080/wizards/searching/' + name)
   }
 
-
-  findFamilyByName(name: String) : Observable<Family>{
-    return this.http.get<Family>(`${this.urlEnpointFamily}/${name}`)    
+  findFamilyByName(name: String): Observable<Family> {
+    return this.http.get<Family>(`${this.urlEnpointFamily}/${name}`)
   }
 
-  findAnimalsFantastics(page : number): Observable<any> {
-    return this.http
-      .get(this.urlEnpointWizards + 'animals/' + page)
-      .pipe(
-        map((response : any) => {
-          return response as Wizard[]
-        }));
-  }
-  findMortifagos(page : number): Observable<any> {
-    return this.http
-      .get(this.urlEnpointWizards + 'mortifagos/' + page)
-      .pipe(
-        map((response : any) => {
-          return response as Wizard[]
-        }));
-  }
-
-
-  findStudents(page : number): Observable<any> {
-    return this.http
-      .get(this.urlEnpointWizards + 'students/' + page)
-      .pipe(
-        map((response : any) => {
-          return response as Wizard[]
-        }));
-  }
-
-  findTeachers(page : number): Observable<any> {
-    return this.http
-      .get(this.urlEnpointWizards + 'teachers/' + page)
-      .pipe(
-        map((response : any) => {
-          return response as Wizard[]
-        }));
-  }
-
-  findOthers(page : number): Observable<any> {
-    return this.http
-      .get(this.urlEnpointWizards + 'others/' + page)
-      .pipe(
-        map((response : any) => {
-          return response as Wizard[]
-        }));
-  }
 }

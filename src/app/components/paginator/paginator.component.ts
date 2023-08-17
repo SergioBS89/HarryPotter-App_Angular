@@ -1,4 +1,5 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
+import { GeneralEnum } from 'src/app/whole-project/general.enum';
 
 @Component({
   selector: 'app-paginator',
@@ -13,9 +14,24 @@ export class PaginatorComponent {
  listPages: number[];
  from: number;
  to: number;
+ 
  //Paginator is displayed in some screens
  @Input()
- screen : string;
+ currentScreen : string;
+
+ /**
+  * Categories whole project
+  */
+ allWizardsCategory = GeneralEnum.WIZARDS
+ teachersCategory = GeneralEnum.TEACHERS
+ studentsCategory = GeneralEnum.STUDENTS
+ mortifagosCategory = GeneralEnum.MORTIFAGOS
+ otherWizardsCategory = GeneralEnum.OTHERS_WIZ
+ animalsFantasticsCategory = GeneralEnum.ANIMALS_FANTASTICS
+ otherObjectsCategory = GeneralEnum.OTHER_OBJECTS
+ wandersCategory = GeneralEnum.WANDERS
+ allCreatures = GeneralEnum.ALL_CREATURES
+
 
 
  constructor() { }

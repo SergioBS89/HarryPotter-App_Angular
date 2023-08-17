@@ -4,4 +4,5 @@ export class Objects {
     name: string = ""
     info: string = ""
     picture: string = ""
+    backcard: string = ""
 }

@@ -7,15 +7,15 @@
 }
 
 .page-link{
-    background-color: rgb(212, 134, 16);
+    background-color: rgb(32, 32, 32);
     text-decoration: none;
     color: blanchedalmond;
-    border: 1px solid rgba(0, 0, 0, 0);
+    border: 2px solid rgb(170, 164, 164);
     margin: 0 20px;
 }
 
 .page-link:hover, .page-link:active, .page-link:focus{
     color: inherit;
-    background-color: rgb(133, 78, 7);
+    background-color: rgb(133, 130, 127);
 }
 

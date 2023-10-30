@@ -26,16 +26,12 @@
     min-height: 480px;
     transition: transform 0.7s cubic-bezier(.40, .2, .2, 1);
     backface-visibility: hidden;
-    border: 7px solid black;
+    border: 7px solid rgba(0, 0, 0, 0.884);
+    transform-style: preserve-3d;
 }
 
 .flip-box-front {
     transform: rotateY(0deg);
-    transform-style: preserve-3d;
-}
-
-.flip-box:hover .flip-box-front {
-    transform: rotateY(-180deg);
     transform-style: preserve-3d;
 }
 
@@ -48,10 +44,6 @@
     transform-style: preserve-3d;
 }
 
-.flip-box:hover .flip-box-back {
-    transform: rotateY(0deg);
-    transform-style: preserve-3d;
-}
 
 .flip-box .inner {
     position: absolute;
@@ -69,9 +61,6 @@
     color: rgb(235, 7, 7);
 }
 
-.color-name {
-    color: rgb(255, 255, 255);
-}
 
 .flip-box-header {
     font-size: 27px;
@@ -83,55 +72,47 @@
     border-radius: 15px;
     margin-bottom: 150px;
     transform: translate(-5%, -130px);
+    color: rgb(194, 194, 194);
 }
 
 .flip-box-arrow {
     font-size: 50px;
     transform: translateY(115px);
+    border-radius: 100%;
+    padding: 3px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+.flip-box-arrow:hover {
+    background-color: rgb(214, 210, 212);
 }
 
 /* COLORS HOUSES */
 .green {
-    color: rgb(0, 0, 0);
-    background-color: rgb(22, 133, 0);
-    border-radius: 100%;
-    padding: 3px;
+    background-color: rgb(23, 105, 7);
 }
 
 .red {
-    color: rgb(7, 7, 7);
-    background-color: rgb(163, 4, 4);
-    border-radius: 100%;
-    padding: 3px;
+    background-color: rgb(121, 7, 7);
 }
 
 .gray {
-    color: rgb(7, 7, 7);
     background-color: rgb(129, 90, 127);
-    border-radius: 100%;
-    padding: 3px;
 }
 
 .blue {
-    color: rgb(7, 7, 7);
-    background-color: rgb(34, 56, 248);
-    border-radius: 100%;
-    padding: 3px;
+    background-color: rgb(19, 35, 173);
 }
 
 .yellow {
-    color: rgb(7, 7, 7);
-    background-color: rgb(230, 195, 3);
-    border-radius: 100%;
-    padding: 3px;
+    background-color: rgb(167, 142, 0);
 }
 
 .orange {
-    color: rgb(7, 7, 7);
     background-color: rgb(255, 140, 8);
-    border-radius: 100%;
-    padding: 3px;
 }
+
+
 
 .flip-box p {
     margin-top: 20px;
@@ -140,14 +121,17 @@
 }
 
 .flip-box-button {
-    background-color: rgba(0, 0, 0, 0.699);
-    border: 2px solid #fff;
+    border: 2px solid #252525;
     border-radius: 2px;
-    color: #ffffff;
+    color: #c7c2c2;
     cursor: pointer;
     font-size: 20px;
     font-weight: bold;
     padding: 15px 20px;
     text-transform: uppercase;
     transform: translateY(240px);
+}
+.flip-box-button:hover{
+    color: white;
+    border-color: white;
 }

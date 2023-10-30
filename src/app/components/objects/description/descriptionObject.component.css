@@ -66,3 +66,54 @@ li{
     padding: 4px;
 }
 
+/* Styles of family */
+
+.title-members-wander{    
+    padding: 0;
+    font-family: 'Carter One';
+    font-size: 35px;
+    color: rgb(224, 1, 1);
+    background-color: rgba(0, 0, 0, 0.747);
+    border-radius: 5%;
+    padding: 5px;
+    margin-top: 20px;
+    display: inline;
+    width: auto;
+}
+
+.figure{    
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    position: relative;
+    border: solid 2px rgba(0, 0, 0, 0.384); 
+    margin-right: 50px;
+    margin-bottom: 40px;
+}
+
+.face-wizard{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    left: 0;
+    cursor: pointer;
+}
+.face-wizard:hover{
+    transform: scale(1.05);
+    border: solid 1px rgb(243, 222, 130);
+}
+.figure p{
+    position: absolute;
+    bottom: -50px;
+    font-size: 20px;
+    font-family: 'Carter One';
+    width: 100%;
+    left: 0;
+}
+.name-face-color{
+    color: rgb(243, 222, 130);
+}

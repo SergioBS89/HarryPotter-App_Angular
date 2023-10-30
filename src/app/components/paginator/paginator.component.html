@@ -141,3 +141,35 @@
         </li>
     </ul>
 </div>
+
+<div *ngIf="currentScreen == noDangerCreatures" class="container-paginator">
+    <ul *ngIf="listPages?.length > 0" class="pagination">
+        <!-- Paginator button back -->
+        <li class="page-item" *ngIf="paginator.number > 0">
+            <a class="page-link" [routerLink]="['/no-danger/', paginator.number -1]"><i class="fa-solid fa-arrow-left"></i></a>
+        </li>
+        <li>
+            <a></a>
+        </li>
+        <!-- Paginator button next -->
+        <li class="page-item" *ngIf="paginator.number < paginator.totalPages - 1">
+            <a class="page-link" [routerLink]="['/no-danger/' , paginator.number + 1]"><i class="fa-solid fa-arrow-right"></i></a>
+        </li>
+    </ul>
+</div>
+
+<div *ngIf="currentScreen == dangerCreatures" class="container-paginator">
+    <ul *ngIf="listPages?.length > 0" class="pagination">
+        <!-- Paginator button back -->
+        <li class="page-item" *ngIf="paginator.number > 0">
+            <a class="page-link" [routerLink]="['/danger/', paginator.number -1]"><i class="fa-solid fa-arrow-left"></i></a>
+        </li>
+        <li>
+            <a></a>
+        </li>
+        <!-- Paginator button next -->
+        <li class="page-item" *ngIf="paginator.number < paginator.totalPages - 1">
+            <a class="page-link" [routerLink]="['/danger/' , paginator.number + 1]"><i class="fa-solid fa-arrow-right"></i></a>
+        </li>
+    </ul>
+</div>

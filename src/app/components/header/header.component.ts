@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { GeneralEnum } from 'src/app/whole-project/general.enum';
+import { Routes } from 'src/app/whole-project/general.enum';
 import { GeneralService } from 'src/app/whole-project/general.service';
 
 @Component({
@@ -14,27 +14,27 @@ export class HeaderComponent {
   @Input()
   isHome: boolean = true; //Value to hide/show shortcuts buttons in header
   @Input()
-  comeBack: GeneralEnum; //Value to hide/show different header depending which screen is active
+  comeBack: Routes; //Value to hide/show different header depending which screen is active
 
   /**
    * List of variables to set the button come back 
    */
-  wizardScreenActive = GeneralEnum.COMEBACK_WIZARDS
-  wizardScreenDescActive = GeneralEnum.COMEBACK_WIZARDS_DESC
-  objectsScreenActive = GeneralEnum.COMEBACK_OBJECTS
-  objectsScreenDescActive = GeneralEnum.COMEBACK_OBJECTS_DESC
-  creaturesScreenActive = GeneralEnum.COMEBACK_CREATURES
-  creaturesScreenDescActive = GeneralEnum.COMEBACK_CREATURES_DESC
-  placesScreenActive = GeneralEnum.COMEBACK_PLACES
-  placesScreenDescActive = GeneralEnum.COMEBACK_PLACES_DESC
+  wizardScreenActive = Routes.COMEBACK_WIZARDS
+  wizardScreenDescActive = Routes.COMEBACK_WIZARDS_DESC
+  objectsScreenActive = Routes.COMEBACK_OBJECTS
+  objectsScreenDescActive = Routes.COMEBACK_OBJECTS_DESC
+  creaturesScreenActive = Routes.COMEBACK_CREATURES
+  creaturesScreenDescActive = Routes.COMEBACK_CREATURES_DESC
+  placesScreenActive = Routes.COMEBACK_PLACES
+  placesScreenDescActive = Routes.COMEBACK_PLACES_DESC
 
   /**
    * Routes for function go()
    */
-  goToWizardsCategories = GeneralEnum.WIZARDS_CATEGORIES
-  goToObjectsCategories = GeneralEnum.OBJECTS_CATEGORIES
-  goToCreaturesCategories = GeneralEnum.CREATURES_CATEGORIES
-  goToPlacesCategories = GeneralEnum.PLACES_CATEGORIES
+  goToWizardsCategories = Routes.WIZARDS_CATEGORIES
+  goToObjectsCategories = Routes.OBJECTS_CATEGORIES
+  goToCreaturesCategories = Routes.CREATURES_CATEGORIES
+  goToPlacesCategories = Routes.PLACES_CATEGORIES
 
 
   ngOnInit() {
@@ -47,10 +47,19 @@ export class HeaderComponent {
    */
   goTo(url: string, isDescriptionScreenActive: boolean) {
     if (isDescriptionScreenActive) {
+      if(this.generalService.urlArray.length == 0){
+        this.router.navigate(['/'])
+      } 
+      console.log(this.generalService.urlArray[0])
       this.router.navigate([this.generalService.urlArray[0]])
       this.generalService.urlArray.pop()
-    } else {
+      console.log('Borrado:' + this.generalService.urlArray[0])
+    } 
+    else {
+      console.log(this.generalService.urlArray[0])
       this.router.navigate(['/' + url])
+      this.generalService.urlArray.pop()
+      console.log('Borrado:' + this.generalService.urlArray[0])
     }
   }
 }

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Creature } from '../class/creature';
 import { map } from 'rxjs';
-import { GeneralEnum } from 'src/app/whole-project/general.enum';
+import { Routes } from 'src/app/whole-project/general.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -12,22 +12,22 @@ export class CreaturesService {
 
   constructor(private http: HttpClient) { }
 
-  private urlEnpointCreatures: string 
+  private urlEnpointCreatures: string
 
   /**
    * Function that returns a list 
    */
-  findCreatures(page: number, category: GeneralEnum): Observable<any> {
+  findCreatures(page: number, category: Routes): Observable<any> {
 
     switch (category) {
-      case GeneralEnum.ALL_CREATURES:
+      case Routes.ALL_CREATURES:
         this.urlEnpointCreatures = 'http://localhost:8080/creatures/pages/' + page
         break;
-      case GeneralEnum.DANGER_CREATURES:
-        this.urlEnpointCreatures = 'http://localhost:8080/creatures/danger'
+      case Routes.DANGER_CREATURES:
+        this.urlEnpointCreatures = 'http://localhost:8080/creatures/danger/' + page
         break;
-      case GeneralEnum.NO_DANGER_CREATURES:
-        this.urlEnpointCreatures = 'http://localhost:8080/creatures/no-danger'
+      case Routes.NO_DANGER_CREATURES:
+        this.urlEnpointCreatures = 'http://localhost:8080/creatures/nodanger/' + page
         break;
       default:
         break;
@@ -38,5 +38,15 @@ export class CreaturesService {
         map(response => response as Creature[]
         )
       )
+  }
+
+  /**
+   * Function to retrieve a creature by raze(name)
+   */
+  findByRaze(raze: string): Observable<any> {
+    return this.http.get('http://localhost:8080/creatures/' + raze)
+    .pipe
+    (map(response => response as Creature[])
+    )
   }
 }

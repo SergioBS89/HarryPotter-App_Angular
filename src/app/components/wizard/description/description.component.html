@@ -1,37 +1,37 @@
 <app-header [isHome]="isHome" [comeBack]="comeBack"></app-header>
 <div class="background">
     <div class="container">
-        <div class="row" *ngFor="let item of wizardList">
+        <div class="row" *ngFor="let wizard of wizardList">
             <div class="box container-img-desc col-xl-3 col-lg-5 col-sm-12"
-                style="background-image: url({{item.picture}});"></div>
+                style="background-image: url({{wizard.picture}});"></div>
             <div class="container-text-desc col ">
                 <ul>
                     <li style="list-style: none;">
-                        <h1 class="{{item.color}}">{{item.name}}</h1>
+                        <h1 class="{{wizard.color}}">{{wizard.name}}</h1>
                     </li>
                     <br>
                     <li class="list-atributes">
-                        <p><span>*Rol: </span>{{item.rol}}</p>
+                        <p><span>*Rol: </span>{{wizard.rol}}</p>
                     </li>
                     <li class="list-atributes">
-                        <p><span>*Edad: </span>{{age}} años</p>
+                        <p><span>*Fecha de nacimiento: </span>{{wizard.age}}</p>
                     </li>
                     <li class="list-atributes">
-                        <p><span>*Actor/Actriz: </span>{{item.actor}}</p>
+                        <p><span>*Actor/Actriz: </span>{{wizard.actor}}</p>
                     </li>
                     <li class="list-atributes">
-                        <p><span>*Sangre: </span>{{item.blood}}</p>
+                        <p><span>*Sangre: </span>{{wizard.blood}}</p>
                     </li>
                     <li class="list-atributes">
-                        <p><span>*Patronus: </span>{{item.patronus}}</p>
+                        <p><span>*Patronus: </span>{{wizard.patronus}}</p>
                     </li>
                     <li class="list-atributes">
-                        <p><span>*Casa: </span>{{item.housename}} <span> <i *ngIf="displayIconsHouseAndWander(item.housename)"
+                        <p><span>*Casa: </span>{{wizard.housename}} <span> <i *ngIf="displayIconsHouseAndWander(wizard.housename)"
                                     class="icon-links fa-sharp fa-solid fa-eye"></i></span></p>
                         <!-- Añadir button to link house -->
                     </li>
                     <li class="list-atributes">
-                        <p><span>*Varita: </span>{{item.wanderInfo}} <span> <i *ngIf="displayIconsHouseAndWander(item.wanderInfo)"
+                        <p><span>*Varita: </span>{{wizard.wanderInfo}} <span> <i (click)="goToDescriptionWander(wizard.wander.name)" *ngIf="displayIconsHouseAndWander(wizard.wanderInfo)"
                                     class="icon-links fa-sharp fa-solid fa-eye"></i></span></p>
 
                         <!-- Añadir button to link house -->
@@ -40,7 +40,7 @@
             </div>
             <div class="container-bibliography">
                 <span class="bibliography-span">*Bibliografia: </span>
-                <p class="bibliography" [innerHTML]="item.bibliography"></p>
+                <p class="bibliography" [innerHTML]="wizard.bibliography"></p>
             </div>
             <p *ngIf="membersFamily.length > 0" class="title-members-family">*Miembros de la familia {{familyName}}:</p>
         </div>

@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { ObjectsService } from '../service/objects.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { GeneralEnum } from 'src/app/whole-project/general.enum';
+import { Routes } from 'src/app/whole-project/general.enum';
+import { Wizard } from '../../wizard/class/wizard';
 
 @Component({
   selector: 'app-description',
@@ -21,16 +22,18 @@ export class DescriptionObjectComponent {
   objectList: Object[] = [];
   isHome: boolean = false
   nameWizard: any;
-  comeBack: GeneralEnum = GeneralEnum.COMEBACK_OBJECTS_DESC
+  listOwnersWanders: Wizard[] = []
+  showOwnerWander: boolean = false
+  comeBack = Routes.COMEBACK_OBJECTS_DESC
 
   /**
    * Description routes
    */
-  wanderRoute = GeneralEnum.WANDER_DESC
-  horocruxRoute = GeneralEnum.HOROCRUXES_DESC
-  reliquesRoute = GeneralEnum.RELIQUES_DESC
-  quiddichRoute = GeneralEnum.QUIDDICH_DESC
-  otherObjectsRoute = GeneralEnum.OTHER_OBJECTS_DESC
+  wanderRoute = Routes.WANDER_DESC
+  horocruxRoute = Routes.HOROCRUXES_DESC
+  reliquesRoute = Routes.RELIQUES_DESC
+  quiddichRoute = Routes.QUIDDICH_DESC
+  otherObjectsRoute = Routes.OTHER_OBJECTS_DESC
 
   ngOnInit(): void {
 
@@ -39,7 +42,11 @@ export class DescriptionObjectComponent {
     if (this.checkIfUrlContainsCharacters(this.wanderRoute)) {
       this.service.findWanderByName(param).subscribe((wander) => {
         this.objectList.push(wander);
-      });
+        wander.owner.forEach(element => {
+          this.listOwnersWanders.push(element)
+        });
+      });        
+      this.showOwnerWander = true    
     }
     if (this.checkIfUrlContainsCharacters(this.horocruxRoute)) {
       this.service.findHorocruxesByName(param).subscribe((horocruxes) => {
@@ -68,8 +75,12 @@ export class DescriptionObjectComponent {
    * @param descriptionRoute Function than check if some characters are include in the url
    * @returns 
    */
-  checkIfUrlContainsCharacters(descriptionRoute: GeneralEnum): boolean {
+  checkIfUrlContainsCharacters(descriptionRoute: Routes): boolean {
     return this.router.url.includes(descriptionRoute.toString())
+  }
+
+  goToWizardDescription(nameWizard : string) {
+    this.router.navigate(['/desc/' + nameWizard])
   }
 
   //Prueba para obetner hipervinculo desde texto

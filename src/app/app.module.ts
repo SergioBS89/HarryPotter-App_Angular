@@ -17,6 +17,7 @@ import { SearcherComponent } from './components/searcher/searcher.component';
 import { ReproductorComponent } from './components/reproductor/reproductor.component';
 import { DescriptionObjectComponent } from './components/objects/description/descriptionObject.component';
 import { CreaturesComponent } from './components/creatures/creatures.component';
+import { DescriptionCreatures } from './components/creatures/description/description.creatures';
 
 const routes : Routes = [
   // {path: '', redirectTo: '/clients', pathMatch: 'full'} THIS IS EXAMPLE TO REDIRECT
@@ -48,9 +49,9 @@ const routes : Routes = [
   {path: 'desc-rel/:name', component: DescriptionObjectComponent},
    // Creatures-routes
    {path: 'creatures/:page', component: CreaturesComponent},
-   {path: 'no-danger', component: CreaturesComponent},
-   {path: 'danger', component: CreaturesComponent},
-  //  {path: 'desc-creatures/:name', component: DescriptionObjectComponent}
+   {path: 'no-danger/:page', component: CreaturesComponent},
+   {path: 'danger/:page', component: CreaturesComponent},
+   {path: 'desc-crea/:name', component: DescriptionCreatures}
   
 ]
 
@@ -67,7 +68,8 @@ const routes : Routes = [
     SearcherComponent,
     ReproductorComponent,
     DescriptionObjectComponent,
-    CreaturesComponent
+    CreaturesComponent,
+    DescriptionCreatures
   ],
   imports: [
     BrowserModule,

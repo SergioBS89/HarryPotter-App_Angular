@@ -1,4 +1,4 @@
-export enum GeneralEnum{
+export enum Routes{
 
     //COME BACK BUTTON 
     COMEBACK_WIZARDS,
@@ -15,6 +15,10 @@ export enum GeneralEnum{
     HOME_SCREEN_OBJECTS,
     HOME_SCREEN_CREATURES,
     HOME_SCREEN_PLACES,
+    
+    //Those values should be equals to the routing in app.module
+
+    //HOME CATEGORIES
     WIZARDS_CATEGORIES = "wiz-cat",
     OBJECTS_CATEGORIES = 'obj-cat',
     CREATURES_CATEGORIES = 'cre-cat',
@@ -22,7 +26,7 @@ export enum GeneralEnum{
     //CREATURES CATEGORIES
     ALL_CREATURES = 'creatures',
     DANGER_CREATURES = 'danger',
-    NO_DANGER_CREATURES ='nodanger',
+    NO_DANGER_CREATURES ='no-danger',
     //WIZARDS CATEGORIES
     WIZARDS = 'wizards',
     TEACHERS = 'teachers',

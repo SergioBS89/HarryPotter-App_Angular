@@ -1,0 +1,75 @@
+<app-header [isHome]="isHome" [comeBack]="comeBack"></app-header>
+<div class="background">
+    <div class="container">
+        <div class="row" *ngFor="let item of creatureList">
+            <div class="box container-img-desc col-xl-3 col-lg-5 col-sm-12"
+                style="background-image: url({{item.picture}}); float: left;"></div>
+            <div class="container-text-desc col ">
+                <ul>
+                    <li *ngIf="isCreature" class="title-name" style="list-style: none;">
+                        <h1 class="wander-title">{{item.raze}}</h1>
+                    </li>
+                    <div *ngIf="isCreature" class="atributes">
+                        <li class="container-bibliography">
+                            <p class="danger-rating"><span>*Nivel de Peligro: </span>{{item.clasification}}</p>
+                        </li>
+                        <li>
+                            <div class="container-bibliography">
+                                <span class="bibliography-span">*Frase de las Peliculas/Libros: </span>
+                                <p class="bibliography">{{item.phrase}}</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="container-bibliography">
+                                <span class="bibliography-span">*Informacíon: </span>
+                                <p class="bibliography" [innerHTML]="item.resume"></p>
+                            </div>
+                        </li>
+                    </div>
+
+                    <li *ngIf="!isCreature" class="title-name" style="list-style: none;">
+                        <h1 class="wander-title">{{item.name}}</h1>
+                    </li>
+                    <div *ngIf="!isCreature" class="atributes">
+                        <li class="container-bibliography">
+                            <p lass="bibliography"><span>*Vida: </span>{{item.life}}</p>
+                        </li>
+                        <li>
+                            <div class="container-bibliography">
+                                <span class="bibliography-span">*Frase de las Peliculas/Libros: </span>
+                                <p class="bibliography">{{item.phrase}}</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="container-bibliography">
+                                <span class="bibliography-span">*Informacíon: </span>
+                                <p class="bibliography" [innerHTML]="item.resume"></p>
+                            </div>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div *ngIf="tagList.length > 0" class="container">
+            <h1 *ngIf="isCreature" class="title-tag">Criaturas conocidas:</h1>
+            <h1 *ngIf="!isCreature" class="title-tag">Raza de la criatura:</h1>
+            <div class="row column-row container-tags">
+                <div class="figure col-3" *ngFor="let tag of tagList">
+                    <div class="face-family" style="background-image: url({{tag.picture}});"
+                        (click)="displayTagDescription()"></div>
+                    <a class="links-family">
+                        <p *ngIf="isCreature"  class="text-center name-face-color">{{tag.name}}</p>
+                        <p *ngIf="!isCreature" class="text-center name-face-color">{{tag.raze}}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+</div>

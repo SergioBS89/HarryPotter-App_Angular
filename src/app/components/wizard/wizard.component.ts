@@ -1,9 +1,9 @@
-import { Component} from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { WizardService } from './service/wizard-service';
 import { Wizard } from './class/wizard';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GeneralService } from 'src/app/whole-project/general.service';
-import { GeneralEnum } from 'src/app/whole-project/general.enum';
+import { Routes } from 'src/app/whole-project/general.enum';
 
 @Component({
   selector: 'app-wizard',
@@ -12,28 +12,28 @@ import { GeneralEnum } from 'src/app/whole-project/general.enum';
 })
 export class WizardComponent {
   constructor(private service: WizardService, private router: Router, private activedRoute: ActivatedRoute,
-     private generalService : GeneralService) { }
+    private generalService: GeneralService, private elementRef: ElementRef) { }
 
   wizardList: Wizard[] = [];
   isHome: boolean = false
-  paginator: any  
+  paginator: any
   currentScreen: string;//Paginator variable
-  comeBack: GeneralEnum = GeneralEnum.COMEBACK_WIZARDS
+  comeBack = Routes.WIZARDS
   searcher: string = ""
   paginatorActive = true
+  activeRemarkName = false//Change color card name using event mouse up in arrow
 
   /**
    * Wizards categories
    */
-  allWizardsCategory = GeneralEnum.WIZARDS
-  teachersCategory = GeneralEnum.TEACHERS
-  studentsCategory = GeneralEnum.STUDENTS
-  mortifagosCategory = GeneralEnum.MORTIFAGOS
-  otherWizardsCategory = GeneralEnum.OTHERS_WIZ
-  animalsFantasticsCategory = GeneralEnum.ANIMALS_FANTASTICS
+  allWizardsCategory = Routes.WIZARDS
+  teachersCategory = Routes.TEACHERS
+  studentsCategory = Routes.STUDENTS
+  mortifagosCategory = Routes.MORTIFAGOS
+  otherWizardsCategory = Routes.OTHERS_WIZ
+  animalsFantasticsCategory = Routes.ANIMALS_FANTASTICS
 
   ngOnInit(): void {
-
     let route = this.router.url
     switch (route) {
       case this.getCompleteRoute(this.allWizardsCategory):
@@ -48,10 +48,12 @@ export class WizardComponent {
                 this.wizardList = response.content as Wizard[];
                 this.paginator = response
                 this.generalService.validateIfPageReturnEmptyArray(this.wizardList, redirectTo, this.router)
+
               });
           })
         this.currentScreen = this.allWizardsCategory.toString()
         this.generalService.setBackground('wizard-list-background.jpg')
+
         break;
 
       case this.getCompleteRoute(this.mortifagosCategory):
@@ -144,7 +146,7 @@ export class WizardComponent {
         this.currentScreen = this.otherWizardsCategory.toString()
         this.generalService.setBackground('others-background.png')
         break;
-        
+
       default:
         break;
     }
@@ -180,9 +182,22 @@ export class WizardComponent {
    * @param category wizard category
    * @returns 
    */
-  getCompleteRoute(category : GeneralEnum) : string{
+  getCompleteRoute(category: Routes): string {
     return '/' + category + '/' + this.router.url.slice(this.router.url.lastIndexOf('/') + 1)
   }
+
+  hoverUsingArrowCardOnClick(selectorFront: HTMLElement, selectorBack: HTMLElement) {
+   this.generalService.hoverUsingArrowCardOnClick(selectorFront,selectorBack)
+  }
+
+  hoverUsingBackCardOnClick(selectorFront: HTMLElement, selectorBack: HTMLElement) {
+  this.generalService.hoverUsingBackCardOnClick(selectorFront,selectorBack)
+  }
+
+  remarkName(selectorName : HTMLElement){
+   this.activeRemarkName = this.generalService.remarkName(selectorName, this.activeRemarkName)
+  }
+ 
 }
 
 

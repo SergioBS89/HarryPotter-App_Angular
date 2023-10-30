@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Wizard } from '../class/wizard';
 import { Family } from '../class/family';
-import { GeneralEnum } from 'src/app/whole-project/general.enum';
+import { Routes } from 'src/app/whole-project/general.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -15,18 +15,18 @@ export class WizardService {
   /**
    * Wizards categories
    */
-  allWizardsCategory = GeneralEnum.WIZARDS
-  teachersCategory = GeneralEnum.TEACHERS
-  studentsCategory = GeneralEnum.STUDENTS
-  mortifagosCategory = GeneralEnum.MORTIFAGOS
-  otherWizardsCategory = GeneralEnum.OTHERS_WIZ
-  animalsFantasticsCategory = GeneralEnum.ANIMALS_FANTASTICS
+  allWizardsCategory = Routes.WIZARDS
+  teachersCategory = Routes.TEACHERS
+  studentsCategory = Routes.STUDENTS
+  mortifagosCategory = Routes.MORTIFAGOS
+  otherWizardsCategory = Routes.OTHERS_WIZ
+  animalsFantasticsCategory = Routes.ANIMALS_FANTASTICS
 
 
   private urlEnpointWizards : string;
   private urlEnpointFamily = "http://localhost:8080/wizards/family"
 
-  findAll(page: number, category: GeneralEnum): Observable<any> {
+  findAll(page: number, category: Routes): Observable<any> {
 
     switch (category) {
       case this.allWizardsCategory:
@@ -69,5 +69,4 @@ export class WizardService {
   findFamilyByName(name: String): Observable<Family> {
     return this.http.get<Family>(`${this.urlEnpointFamily}/${name}`)
   }
-
 }

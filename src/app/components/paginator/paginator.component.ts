@@ -1,5 +1,5 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
-import { GeneralEnum } from 'src/app/whole-project/general.enum';
+import { Routes } from 'src/app/whole-project/general.enum';
 
 @Component({
   selector: 'app-paginator',
@@ -22,15 +22,17 @@ export class PaginatorComponent {
  /**
   * Categories whole project
   */
- allWizardsCategory = GeneralEnum.WIZARDS
- teachersCategory = GeneralEnum.TEACHERS
- studentsCategory = GeneralEnum.STUDENTS
- mortifagosCategory = GeneralEnum.MORTIFAGOS
- otherWizardsCategory = GeneralEnum.OTHERS_WIZ
- animalsFantasticsCategory = GeneralEnum.ANIMALS_FANTASTICS
- otherObjectsCategory = GeneralEnum.OTHER_OBJECTS
- wandersCategory = GeneralEnum.WANDERS
- allCreatures = GeneralEnum.ALL_CREATURES
+ allWizardsCategory = Routes.WIZARDS
+ teachersCategory = Routes.TEACHERS
+ studentsCategory = Routes.STUDENTS
+ mortifagosCategory = Routes.MORTIFAGOS
+ otherWizardsCategory = Routes.OTHERS_WIZ
+ animalsFantasticsCategory = Routes.ANIMALS_FANTASTICS
+ otherObjectsCategory = Routes.OTHER_OBJECTS
+ wandersCategory = Routes.WANDERS
+ allCreatures = Routes.ALL_CREATURES
+ noDangerCreatures = Routes.NO_DANGER_CREATURES
+ dangerCreatures = Routes.DANGER_CREATURES
 
 
 

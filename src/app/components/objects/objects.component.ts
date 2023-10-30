@@ -3,7 +3,7 @@ import { ObjectsService } from './service/objects.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Objects } from './class/objects';
 import { GeneralService } from 'src/app/whole-project/general.service';
-import { GeneralEnum } from 'src/app/whole-project/general.enum';
+import { Routes} from 'src/app/whole-project/general.enum';
 
 
 @Component({
@@ -19,22 +19,23 @@ export class ObjectsComponent {
   isHome: boolean = false;
   paginator: any;
   currentScreen: string;
-  comeBack: GeneralEnum = GeneralEnum.COMEBACK_OBJECTS;
+  comeBack = Routes.COMEBACK_OBJECTS;
+  activeRemarkName = false
 
   /**
    * Categories
    */
-  horocruxesCategory = GeneralEnum.HOROCRUXES
-  reliquesCategory = GeneralEnum.RELIQUES
-  quiddichCategory = GeneralEnum.QUIDDICH
-  otherObjectsCategory = GeneralEnum.OTHER_OBJECTS
-  wandersCategory = GeneralEnum.WANDERS
+  horocruxesCategory = Routes.HOROCRUXES
+  reliquesCategory = Routes.RELIQUES
+  quiddichCategory = Routes.QUIDDICH
+  otherObjectsCategory = Routes.OTHER_OBJECTS
+  wandersCategory = Routes.WANDERS
 
   /**
    * These variables are to display the differents 'backcards' in HTML
    */
   backcardHorocrux: boolean
-  backcardWander: boolean
+  backcardWanders: boolean
   backcardOthers: boolean
   backcardReliques: boolean
   backcardQuiddich: boolean
@@ -72,7 +73,7 @@ export class ObjectsComponent {
         
         this.generalService.setBackground('wanders.jpg')
         this.currentScreen = this.wandersCategory.toString()
-        this.backcardWander = true
+        this.backcardWanders = true
         break;
 
       case '/' + this.reliquesCategory:
@@ -130,22 +131,34 @@ export class ObjectsComponent {
     this.generalService.urlArray.push(this.router.url)
     switch (category) {
       case this.wandersCategory:
-        this.router.navigate([GeneralEnum.WANDER_DESC + url]);
+        this.router.navigate([Routes.WANDER_DESC + url]);
         break;
       case this.horocruxesCategory:
-        this.router.navigate([GeneralEnum.HOROCRUXES_DESC + url]);
+        this.router.navigate([Routes.HOROCRUXES_DESC + url]);
         break;
       case this.reliquesCategory:
-        this.router.navigate([GeneralEnum.RELIQUES_DESC + url]);
+        this.router.navigate([Routes.RELIQUES_DESC + url]);
         break;
       case this.quiddichCategory:
-        this.router.navigate([GeneralEnum.QUIDDICH_DESC + url]);
+        this.router.navigate([Routes.QUIDDICH_DESC + url]);
         break;
       case this.otherObjectsCategory:
-        this.router.navigate([GeneralEnum.OTHER_OBJECTS_DESC + url]);
+        this.router.navigate([Routes.OTHER_OBJECTS_DESC + url]);
         break;
     }
 
   }
+
+  hoverUsingArrowCardOnClick(selectorFront: HTMLElement, selectorBack: HTMLElement) {
+    this.generalService.hoverUsingArrowCardOnClick(selectorFront,selectorBack)
+   }
+ 
+   hoverUsingBackCardOnClick(selectorFront: HTMLElement, selectorBack: HTMLElement) {
+   this.generalService.hoverUsingBackCardOnClick(selectorFront,selectorBack)
+   }
+ 
+   remarkName(selectorName : HTMLElement){
+    this.activeRemarkName = this.generalService.remarkName(selectorName, this.activeRemarkName)
+   }
 
 }

@@ -26,16 +26,11 @@
     min-height: 480px;
     transition: transform 0.7s cubic-bezier(.40, .2, .2, 1);
     backface-visibility: hidden;
-    border: 7px solid rgb(83, 1, 1);
+    border: 7px solid rgb(64, 1, 83);
 }
 
 .flip-box-front {
     transform: rotateY(0deg);
-    transform-style: preserve-3d;
-}
-
-.flip-box:hover .flip-box-front {
-    transform: rotateY(-180deg);
     transform-style: preserve-3d;
 }
 
@@ -45,11 +40,6 @@
     left: 0;
     width: 100%;
     transform: rotateY(180deg);
-    transform-style: preserve-3d;
-}
-
-.flip-box:hover .flip-box-back {
-    transform: rotateY(0deg);
     transform-style: preserve-3d;
 }
 
@@ -65,12 +55,8 @@
     top: 40%;
 }
 
-.color-text {
-    color: rgb(235, 7, 7);
-}
-
 .color-name {
-    color: rgb(255, 255, 255);
+    color:rgb(97, 173, 87)
 }
 
 .flip-box-header {
@@ -78,7 +64,7 @@
     font-weight: bold;
     font-family: 'Carter One', cursive;
     width: 110%;
-    background-color: #6d0000c7;
+    background-color: rgb(64, 1, 83);
     padding: 10px;
     border-radius: 15px;
     margin-bottom: 150px;
@@ -89,8 +75,11 @@
     font-size: 50px;
     transform: translateY(115px);
     color: rgb(97, 173, 87);
+    cursor: pointer;
 }
-
+.flip-box-arrow:hover{
+    color: white;
+}
 .flip-box p {
     margin-top: 20px;
     font-size: 20px;
@@ -99,13 +88,17 @@
 
 .flip-box-button {
     background-color: rgba(0, 0, 0, 0.699);
-    border: 2px solid #fff;
+    border: 2px solid rgb(64, 1, 83);
     border-radius: 2px;
-    color: #9c0505;
+    color: rgb(97, 173, 87);
     cursor: pointer;
     font-size: 20px;
     font-weight: bold;
     padding: 15px 20px;
     text-transform: uppercase;
     transform: translateY(240px);
+}
+.flip-box-button:hover{
+    color: white;
+    border-color: white;
 }

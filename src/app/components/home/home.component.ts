@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { GeneralEnum } from 'src/app/whole-project/general.enum';
+import { Routes } from 'src/app/whole-project/general.enum';
 
 @Component({
   selector: 'app-home',
@@ -14,10 +14,10 @@ export class HomeComponent {
    /**
    * Routes for function go()
    */
-   wizardsCategories = GeneralEnum.WIZARDS_CATEGORIES
-   objectsCategories = GeneralEnum.OBJECTS_CATEGORIES
-   creaturesCategories = GeneralEnum.CREATURES_CATEGORIES
-   placesCategories = GeneralEnum.PLACES_CATEGORIES
+   wizardsCategories = Routes.WIZARDS_CATEGORIES
+   objectsCategories = Routes.OBJECTS_CATEGORIES
+   creaturesCategories = Routes.CREATURES_CATEGORIES
+   placesCategories = Routes.PLACES_CATEGORIES
 
   /**
    * Variables to display HTML screens

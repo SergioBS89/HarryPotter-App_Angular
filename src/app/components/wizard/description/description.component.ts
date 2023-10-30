@@ -3,7 +3,7 @@ import { WizardService } from '../service/wizard-service';
 import { Wizard } from '../class/wizard';
 import { ActivatedRoute, Router } from '@angular/router';
 import { text } from '@fortawesome/fontawesome-svg-core';
-import { GeneralEnum } from 'src/app/whole-project/general.enum';
+import { Routes } from 'src/app/whole-project/general.enum';
 
 @Component({
   selector: 'app-description',
@@ -25,14 +25,12 @@ export class DescriptionComponent {
   age: number = 0
   isHome: boolean = false
   nameWizard: any;
-  comeBack: GeneralEnum = GeneralEnum.COMEBACK_WIZARDS_DESC
+  comeBack = Routes.COMEBACK_WIZARDS_DESC
 
   ngOnInit(): void {
     let name = this.activeRoute.snapshot.params['name'];
     this.service.findByName(name).subscribe((wizards) => {
       this.wizardList.push(wizards);
-      console.log(wizards)
-
       this.service.findFamilyByName(this.wizardList[0].familyname).subscribe(
         response => {
           let family: any = response
@@ -78,6 +76,12 @@ export class DescriptionComponent {
       return false
     } else {
       return true
+    }
+  }
+
+  goToDescriptionWander(wander : string){
+    if(wander != null || wander.length > 0){
+      this.router.navigate(['/desc-wan/' + wander])
     }
   }
 }

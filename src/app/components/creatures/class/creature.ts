@@ -5,7 +5,7 @@ export class Creature {
     phrase: string
     life: string
     clasification: string
-    danger: boolean
+    danger: string
     picture: string
     backcard: string
 }

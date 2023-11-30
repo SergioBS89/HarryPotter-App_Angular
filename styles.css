@@ -1,0 +1,164 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+ background-color: black;
+}
+
+/* These are the styles from description hipervincules */
+.textHiper{
+    text-decoration: none;
+    color: rgb(106, 187, 40);
+}
+
+.textHiper:hover{
+    color: greenyellow;
+}
+
+/* These are the styles from description picture*/
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 90deg;
+    inherits: true;
+  }
+  
+  @property --gradX {
+    syntax: '<percentage>';
+    initial-value: 100%;
+    inherits: true;
+  }
+  
+  @property --gradY {
+    syntax: '<percentage>';
+    initial-value: 0%;
+    inherits: true;
+  }
+  :root {
+	--d: 4000ms;
+	--angle: 90deg;
+	--gradX: 100%;
+	--gradY: 50%;
+	--c1: rgb(207, 205, 205);
+	--c2: rgba(7, 202, 209, 0.301);
+}
+.box {
+	border: 0.4rem solid;
+	border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+	animation: borderRotate var(--d) linear forwards infinite;
+}
+
+@keyframes borderRotate {
+	100% {
+		--angle: 420deg;
+	}
+}
+
+
+/* SCREEN CARDS STYLES WHOLE PROJECT */
+
+.container {
+  max-width: 77%;
+}
+
+.flip-box {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  margin-top: 100px;
+  margin-bottom: 80px;
+}
+
+.flip-box-front,
+.flip-box-back {
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  min-height: 480px;
+  transition: transform 0.7s cubic-bezier(.40, .2, .2, 1);
+  backface-visibility: hidden;
+}
+
+.flip-box-front:hover {
+  transform: scale(1.05);
+}
+
+.flip-box-front {
+  transform: rotateY(0deg);
+  transform-style: preserve-3d;
+}
+
+.flip-box-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: rotateY(180deg);
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.flip-box .inner {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  outline: 1px solid transparent;
+  perspective: inherit;
+  z-index: 2;
+  transform: translateY(-50%)translateZ(60px) scale(.94);
+  top: 40%;
+}
+
+.flip-box-header {
+  font-size: 27px;
+  font-weight: bold;
+  font-family: 'Carter One', cursive;
+  width: 110%;
+  padding: 10px;
+  border-radius: 15px;
+  margin-bottom: 150px;
+  transform: translate(-5%, -130px);
+}
+
+.flip-box-arrow {
+  font-size: 50px;
+  transform: translateY(115px);
+  border-radius: 100%;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.flip-box p {
+  margin-top: 20px;
+  font-size: 20px;
+  line-height: 1.5rem;
+}
+
+.flip-box-button {
+  border-radius: 20px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;    
+  text-transform: uppercase;
+  transform: translateY(240px);
+}
+
+.animation-rotate img {
+  width: 30%;
+  height: 30%;
+  transform: translateY(180px) scale(1);
+  animation-name: click-here;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  background-color: rgba(255, 255, 255, 0.705);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+@keyframes click-here {
+  from{
+      transform: translateY(180px) scale(1.5);
+  }
+  to{
+      transform: translateY(180px) scale(1);
+  }
+}

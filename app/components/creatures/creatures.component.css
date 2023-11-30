@@ -1,0 +1,38 @@
+.background {
+    background-image: url(../../../assets/img/backgrounds/wizard-list-background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 50px 0;
+}
+
+.flip-box-front,
+.flip-box-back {
+    border: 7px solid #d45f00da;
+}
+
+.flip-box-header {
+    background-color:  #d45f00da;
+    color: rgb(66, 68, 64);
+}
+
+.flip-box-arrow {
+    color: rgb(247, 113, 24);
+}
+
+.flip-box-arrow:hover {
+    color: white;
+}
+
+.flip-box-button {
+    background-color: rgba(235, 88, 20, 0.767);
+    color: rgb(177, 176, 175);
+    border: 2px solid rgb(99, 97, 97);
+}
+
+.flip-box-button:hover{
+    color: white;
+    border-color: white;
+    background-color: rgb(255, 115, 0);
+}
+

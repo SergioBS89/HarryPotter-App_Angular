@@ -1,0 +1,49 @@
+.container{
+display: flex;
+justify-content: flex-end;
+}
+
+label {
+    display: block;
+    font:
+      1rem 'Fira Sans',
+      sans-serif;
+      color: bisque;
+  }
+  
+  input{
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    background-color: rgba(216, 216, 216, 0.507);
+    color: white;
+    padding: 5px;
+  }
+
+  input:hover, input:active, input:focus {
+    color: white;
+    background-color: rgba(185, 184, 183, 0.774);
+    border: 2px solid rgb(255, 255, 255) ;
+}
+
+  .button-search{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+  }
+
+  .icon-search{
+    font-size: 25px;
+    color: rgb(255, 255, 255); 
+    cursor: pointer;
+  }
+
+  .icon-search:hover{
+    background-color: rgba(245, 222, 179, 0.466);
+    border-radius: 50%;
+    padding: 4px;
+   transform: scale(1.2);
+  }
+  

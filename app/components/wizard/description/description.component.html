@@ -1,0 +1,66 @@
+<app-header [isHome]="isHome" [comeBack]="comeBack"></app-header>
+<div class="background">
+    <div class="container">
+        <div class="row" *ngFor="let wizard of wizardList">
+            <div class="box container-img-desc col-xl-3 col-lg-5 col-sm-12"
+                style="background-image: url({{wizard.picture}});"></div>
+            <div class="container-text-desc col ">
+                <ul>
+                    <li style="list-style: none;">
+                        <h1 class="{{wizard.color}}">{{wizard.name}}</h1>
+                    </li>
+                    <br>
+                    <li class="list-atributes">
+                        <p><span>*Rol: </span>{{wizard.rol}}</p>
+                    </li>
+                    <li class="list-atributes">
+                        <p><span>*Fecha de nacimiento: </span>{{wizard.age}}</p>
+                    </li>
+                    <li class="list-atributes">
+                        <p><span>*Actor/Actriz: </span>{{wizard.actor}}</p>
+                    </li>
+                    <li class="list-atributes">
+                        <p><span>*Sangre: </span>{{wizard.blood}}</p>
+                    </li>
+                    <li class="list-atributes">
+                        <p *ngIf=" wizard.patronus != null && wizard.patronus != ''"><span>*Patronus: </span>{{wizard.patronus}}</p>
+                        <p *ngIf="wizard.patronus == null || wizard.patronus == ''"><span>*Patronus: </span>Se desconocen los datos</p>
+                    </li>
+                    <li class="list-atributes">
+                        <p *ngIf="wizard.housename.length > 0"><span>*Casa: </span>{{wizard.housename}} <span> <i
+                                    class="icon-links fa-sharp fa-solid fa-house"></i></span></p>
+                        <p *ngIf="wizard.housename.length == 0 || wizard.housename == null"><span>*Casa: </span>Se
+                            desconoce la casa a la que perteneció</p>
+                    </li>
+                    <li class="list-atributes">
+                        <p *ngIf="wizard.wanderInfo.length > 0"><span>*Varita: </span>{{wizard.wanderInfo}} <span> <i
+                                    (click)="goToDescriptionWander(wizard.wander.name)"
+                                    class="icon-links fa-sharp fa-solid fa-eye"></i></span></p>
+                        <p *ngIf="wizard.wanderInfo.length == 0 || wizard.wanderInfo == null"><span>*Varita: </span>Se
+                            desconoce el origen de la varita</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="container-bibliography">
+                <span class="bibliography-span">*Bibliografia: </span>
+                <p class="bibliography" [innerHTML]="wizard.bibliography"></p>
+            </div>
+            <p *ngIf="membersFamily.length > 0" class="title-members-family">*Miembros de la familia {{familyName}}:</p>
+        </div>
+    </div>
+    <br>
+    <div *ngIf="membersFamily.length > 0" class="container" style="padding-left: 20px; padding-right: 0;">
+        <div>
+            <div class="figure col-3" *ngFor="let member of membersFamily">
+                <div class="face-family" style="background-image: url({{member.facemember}});"
+                    (click)="displayDescriptionFromFamily(member.name)"></div>
+                <a class="links-family">
+                    <p class="text-center {{member.color}}">{{member.name}}</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br> 
+</div>

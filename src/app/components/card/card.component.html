@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="image-box">
+    <div class="image-box">
+      <img [src]="item.picture" alt="">
+    </div>
+    <div *ngIf="category == 'wizards' || category == 'villians'" class="content">
+      <h2>{{item.name}}</h2>
+      <p><span>Rol: </span>{{item.rol}}</p>
+      <p><span>Nacimiento: </span>{{item.age}}</p>
+      <p><span>Actor/Actriz: </span>{{item.actor}}</p>
+      <p><span>Casa Hogwarts: </span>{{item.housename}}</p>
+      <p><span>Sangre: </span>{{item.blood}}</p>
+      <p *ngIf="item.wanderInfo.length > 0"><span>Varita: </span>{{item.wanderInfo}}</p>
+      <p *ngIf="item.patronus != 'Desconocido'"><span>Patronus: </span>{{item.patronus}}</p>
+    </div>
+
+    <div *ngIf="category == 'objects'" class="content">
+      <h2>{{item.name}}</h2>
+    </div>
+
+    <div *ngIf="category == 'creatures'" class="content">
+      <h2>{{item.raze}}</h2>
+      <p>{{item.phrase}}</p>
+    </div>
+
+  </div>
+  <button class="box-button" (click)="seeDescription(item.name ? item.name : item.raze)" style="cursor: pointer;">Más información</button>
+</div>

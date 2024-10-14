@@ -1,0 +1,31 @@
+.card-box {
+    margin-bottom: 60px;
+}
+
+.box-front {
+    position: relative;
+    border-radius: 8px;
+    min-height: 300px;
+    transition: transform 0.7s cubic-bezier(.40, .2, .2, 1);
+    background-color: rgba(255, 255, 255, 0.589);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.507) 30%, rgba(130, 130, 130, 0.562) 100%);
+    cursor: pointer;
+    padding: 50px;
+    transition: 0.5s;
+}
+
+.box-front:hover {
+    transform: scale(1.03);
+    background: radial-gradient(circle, rgb(255, 255, 255) 30%, rgba(130, 130, 130, 0.87) 100%);
+}
+
+
+.text-cards {
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    width: 100%;
+    font-family: 'Carter One', cursive;
+}
+

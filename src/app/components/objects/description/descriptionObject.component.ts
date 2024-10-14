@@ -22,9 +22,7 @@ export class DescriptionObjectComponent {
   objectList: Object[] = [];
   isHome: boolean = false
   nameWizard: any;
-  listOwnersWanders: Wizard[] = []
-  showOwnerWander: boolean = false
-  comeBack = Routes.COMEBACK_OBJECTS_DESC
+  shortcodeToDifferentCategory = Routes.GO_BACK_FROM_SCREEN_OBJECTS
 
   /**
    * Description routes
@@ -38,50 +36,12 @@ export class DescriptionObjectComponent {
   ngOnInit(): void {
 
     let param = this.activeRoute.snapshot.params['name'];
-
-    if (this.checkIfUrlContainsCharacters(this.wanderRoute)) {
-      this.service.findWanderByName(param).subscribe((wander) => {
-        this.objectList.push(wander);
-        wander.owner.forEach(element => {
-          this.listOwnersWanders.push(element)
-        });
-      });        
-      this.showOwnerWander = true    
-    }
-    if (this.checkIfUrlContainsCharacters(this.horocruxRoute)) {
-      this.service.findHorocruxesByName(param).subscribe((horocruxes) => {
-        this.objectList.push(horocruxes);
-      });
-    }
-    if (this.checkIfUrlContainsCharacters(this.reliquesRoute)) {
-      this.service.findReliqesByName(param).subscribe((reliques) => {
-        this.objectList.push(reliques);
-      });
-    }
-    if (this.checkIfUrlContainsCharacters(this.quiddichRoute)) {
-      this.service.findQuiddichByName(param).subscribe((quiddich) => {
-        this.objectList.push(quiddich);
-      });
-    }
-    if (this.checkIfUrlContainsCharacters(this.otherObjectsRoute)) {
-      this.service.findOthersByName(param).subscribe((others) => {
-        this.objectList.push(others);
-      });
-    }
+    this.service.findMagicObjectsByName(param).subscribe((object) => {
+      console.log(object)
+      this.objectList.push(object);
+    });
   }
 
-  /**
-   * 
-   * @param descriptionRoute Function than check if some characters are include in the url
-   * @returns 
-   */
-  checkIfUrlContainsCharacters(descriptionRoute: Routes): boolean {
-    return this.router.url.includes(descriptionRoute.toString())
-  }
-
-  goToWizardDescription(nameWizard : string) {
-    this.router.navigate(['/desc/' + nameWizard])
-  }
 
   //Prueba para obetner hipervinculo desde texto
   goFromText(text: string) {

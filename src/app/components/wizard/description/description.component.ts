@@ -22,10 +22,10 @@ export class DescriptionComponent {
   description: any
   wizardList: Wizard[] = [];
   membersFamily: Wizard[] = [];
+  familyName: String = "";
   age: number = 0
   isHome: boolean = false
-  nameWizard: any;
-  comeBack = Routes.COMEBACK_WIZARDS_DESC
+  shortcodeToDifferentCategory = Routes.GO_BACK_FROM_SCREEN_WIZARDS
 
   ngOnInit(): void {
     let name = this.activeRoute.snapshot.params['name'];
@@ -37,6 +37,7 @@ export class DescriptionComponent {
           family.forEach(member => {
             if (member.name != this.wizardList[0].name) {
               this.membersFamily.push(member)
+              this.familyName = this.wizardList[0].familyname
             }
             let getAge = this.wizardList[0].age
             this.age = new Date().getFullYear() - getAge
@@ -52,14 +53,14 @@ export class DescriptionComponent {
   }
 
   /**
-   * Display the family members info in the description screen
+   *This function manage the info from family members in description screen
    */
   displayDescriptionFromFamily(memberName: string) {
     this.service.findByName(memberName).subscribe(wizards => {
       let oldWizard = this.wizardList.pop()
       this.wizardList.push(wizards);
       this.membersFamily.push(oldWizard)
-      //It filters from an array of wizards who wizards are different to the current one display in description
+      //It filters from an array of wizards who wizards are different to the current one display in description screen
       this.membersFamily = this.membersFamily.filter(wiz => wiz.name != wizards.name)
 
       window.scroll({
@@ -69,7 +70,7 @@ export class DescriptionComponent {
     })
   }
 
-  goToDescriptionWander(wander : string){
+  goToWanderScreen(wander : string){
     if(wander != null || wander.length > 0){
       this.router.navigate(['/desc-wan/' + wander])
     }

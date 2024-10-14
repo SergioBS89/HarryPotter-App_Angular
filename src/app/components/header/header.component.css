@@ -3,6 +3,7 @@
     border-bottom: solid 2px rgba(199, 195, 195, 0.822);
     border-top: solid 1px black;
     padding-top: 20px;
+    margin-bottom: 50px;
 }
 
 button:disabled{
@@ -31,3 +32,4 @@ button:disabled{
 .nav-link{
     cursor: pointer;
 }
+

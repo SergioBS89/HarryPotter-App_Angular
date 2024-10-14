@@ -1,5 +1,5 @@
-<app-header [isHome]="isHome" [comeBack]="comeBack"></app-header>
-<div class="background">
+<app-header [isHome]="isHome" [shortcodeToDifferentCategory]="shortcodeToDifferentCategory"></app-header>
+<div>
     <div class="container">
         <div class="row" *ngFor="let item of objectList">
             <div class="box container-img-desc col-xl-3 col-lg-5 col-sm-12"
@@ -20,21 +20,6 @@
                 </ul>
             </div>
         </div>
-        <br>
-        <br>
-        <br>
-        <div *ngIf="showOwnerWander" class="container">
-            <p *ngIf="listOwnersWanders.length > 0" class="title-members-wander">*Propietario/s de la varita:</p>
-            <br>
-            <br>
-            <div class="row column-row">
-                <div class="figure col-3" *ngFor="let wizard of listOwnersWanders">
-                    <div (click)="goToWizardDescription(wizard.name)" class="face-wizard" style="background-image: url({{wizard.facemember}});"></div>
-                    <p class="text-center name-face-color">{{wizard.name}}</p>
-                </div>
-            </div>
-        </div>
-        <br>
         <br>
         <br>
         <br>

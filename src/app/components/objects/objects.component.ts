@@ -3,7 +3,7 @@ import { ObjectsService } from './service/objects.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Objects } from './class/objects';
 import { GeneralService } from 'src/app/whole-project/general.service';
-import { Routes} from 'src/app/whole-project/general.enum';
+import { Routes } from 'src/app/whole-project/general.enum';
 
 
 @Component({
@@ -18,153 +18,81 @@ export class ObjectsComponent {
   objectsList: Objects[] = new Array();
   isHome: boolean = false;
   paginator: any;
-  currentScreen: string;
-  comeBack = Routes.COMEBACK_OBJECTS;
-  activeRemarkName = false
-  counterHelp : number
-
-  /**
-   * Categories
-   */
-  horocruxesCategory = Routes.HOROCRUXES
-  reliquesCategory = Routes.RELIQUES
-  quiddichCategory = Routes.QUIDDICH
-  otherObjectsCategory = Routes.OTHER_OBJECTS
-  wandersCategory = Routes.WANDERS
-
-  /**
-   * These variables are to display the differents 'backcards' in HTML
-   */
-  backcardHorocrux: boolean
-  backcardWanders: boolean
-  backcardOthers: boolean
-  backcardReliques: boolean
-  backcardQuiddich: boolean
+  paginatorActive = true
+  shortcodeToDifferentCategory = Routes.GO_BACK_FROM_SCREEN_OBJECTS;
+  pathPaginator: string
+  categoryDescription = Routes.OBJECTS_CATEGORIES
+  category = Routes.OBJECTS
 
 
   ngOnInit(): void {
-
-    this.counterHelp = 0
     //This variable get the current url
-    let route = this.router.url
+    let route = this.router.url;
+    let redirectTo = '';
+    let pathPrefix;
 
     switch (route) {
-      case '/' + this.horocruxesCategory:
-        this.service.findHorocruxes().subscribe(json => {
-          this.objectsList = json
-        })
-        
-        this.generalService.setBackground('horocruxes.jpg')
-        this.backcardHorocrux = true
+      case this.getCompleteRoute(Routes.WANDERS):
+        redirectTo = '/wanders/0';
+        pathPrefix = Routes.WANDERS;
         break;
 
-      case '/' + this.wandersCategory + '/' + this.router.url.slice(this.router.url.lastIndexOf('/') + 1):
-        this.activedRoute.paramMap.subscribe(
-          params => {
-            let firstRoute = '/wanders/0'
-            let page: number = +params.get('page')
-            this.generalService.checkIfPageValueIsNaN(page, firstRoute, this.router)
-            this.service
-              .findWanders(page)
-              .subscribe((response) => {
-                this.objectsList = response.content
-                this.paginator = response
-                this.generalService.validateIfPageReturnEmptyArray(this.objectsList,firstRoute, this.router )
-              })
-          });
-        
-        this.generalService.setBackground('wanders.jpg')
-        this.currentScreen = this.wandersCategory.toString()
-        this.backcardWanders = true
+      case this.getCompleteRoute(Routes.RELIQUES):
+        redirectTo = '/hollows/0';
+        pathPrefix = Routes.RELIQUES;
         break;
 
-      case '/' + this.reliquesCategory:
-        this.service.findReliques().subscribe(json => {
-          this.objectsList = json
-        })
-        
-        this.generalService.setBackground('reliques.jpg')
-        this.backcardReliques = true
+      case this.getCompleteRoute(Routes.HOROCRUXES):
+        redirectTo = '/horocruxes/0';
+        pathPrefix = Routes.HOROCRUXES;
         break;
 
-      case '/' + this.quiddichCategory:
-        this.service.findQuiddichObjects().subscribe(json => {
-          this.objectsList = json
-        })
-        
-        this.generalService.setBackground('quiddich.jpg')
-        this.backcardQuiddich = true
+      case this.getCompleteRoute(Routes.QUIDDICH):
+        redirectTo = '/quiddich/0';
+        pathPrefix = Routes.QUIDDICH;
         break;
 
-      case '/' + this.otherObjectsCategory + '/' + this.router.url.slice(this.router.url.lastIndexOf('/') + 1):
-        this.activedRoute.paramMap.subscribe(
-          params => {
-            let firstRoute = '/others-objects/0'
-            let page: number = +params.get('page')
-            this.generalService.checkIfPageValueIsNaN(page, firstRoute, this.router)
-            this.service
-              .findOthersObjects(page)
-              .subscribe((response) => {
-                this.objectsList = response.content
-                this.paginator = response
-                this.generalService.validateIfPageReturnEmptyArray(this.objectsList,firstRoute,this.router)
-              });
-          })
-        
-        this.generalService.setBackground('magic-objects.jpg')
-        this.currentScreen = 'other-magic-objects'
-        this.backcardOthers = true
+      case this.getCompleteRoute(Routes.OTHER_OBJECTS):
+        redirectTo = '/others-objects/0';
+        pathPrefix = Routes.OTHER_OBJECTS;
         break;
 
       default:
-        break;
+        return; 
     }
-  }
+
+    this.pathPaginator = '/' + pathPrefix + '/';
+
+      this.activedRoute.paramMap.subscribe(params => {
+        let page: number = +params.get('page');
+        this.generalService.checkIfPageValueIsNaN(page, redirectTo, this.router);
+        this.service.findAll(page, pathPrefix).subscribe(response => {
+          this.objectsList = response.content;
+          this.paginator = response;
+          this.generalService.validateIfPageReturnEmptyArray(this.objectsList, redirectTo, this.router);
+        });
+      });
+    
+    }
+  
 
   /**
    * This function navigates to description component
    * @param url 
    * @param category 
    */
-  seeDescription(url: string, category: string) {
+  seeDescription(url: string) {
 
     this.generalService.urlArray.push(this.router.url)
-    switch (category) {
-      case this.wandersCategory:
-        this.router.navigate([Routes.WANDER_DESC + url]);
-        break;
-      case this.horocruxesCategory:
-        this.router.navigate([Routes.HOROCRUXES_DESC + url]);
-        break;
-      case this.reliquesCategory:
-        this.router.navigate([Routes.RELIQUES_DESC + url]);
-        break;
-      case this.quiddichCategory:
-        this.router.navigate([Routes.QUIDDICH_DESC + url]);
-        break;
-      case this.otherObjectsCategory:
-        this.router.navigate([Routes.OTHER_OBJECTS_DESC + url]);
-        break;
-    }
-
   }
 
-  hoverUsingArrowCardOnClick(selectorFront: HTMLElement, selectorBack: HTMLElement) {
-    this.generalService.hoverUsingArrowCardOnClick(selectorFront,selectorBack)
-   }
- 
-   hoverUsingBackCardOnClick(selectorFront: HTMLElement, selectorBack: HTMLElement) {
-   this.generalService.hoverUsingBackCardOnClick(selectorFront,selectorBack)
-   }
- 
-   remarkName(selectorName : HTMLElement, category : string){
-    this.activeRemarkName = this.generalService.remarkName(selectorName, this.activeRemarkName, category)
-   }
-   showAnimationClick(selectorName: HTMLElement) {
-    if (this.counterHelp < 1) {
-      this.generalService.showAnimationClick(selectorName)
-      this.counterHelp++
-    }
+  /**
+   * Get the whole route for switch cases
+   * @param category wizard category
+   * @returns 
+   */
+  getCompleteRoute(category: Routes): string {
+    return '/' + category + '/' + this.router.url.slice(this.router.url.lastIndexOf('/') + 1)
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Routes } from 'src/app/whole-project/general.enum';
 import { GeneralService } from 'src/app/whole-project/general.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -9,24 +10,20 @@ import { GeneralService } from 'src/app/whole-project/general.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  constructor(private router: Router, private generalService : GeneralService) { }
+  constructor(private router: Router, private generalService : GeneralService, private location : Location) { }
 
   @Input()
-  isHome: boolean = true; //Value to hide/show shortcuts buttons in header
+  isHome: boolean = true; //Value to hide/show shortcuts buttons in header (To go to another components)
   @Input()
-  comeBack: Routes; //Value to hide/show different header depending which screen is active
+  shortcodeToDifferentCategory: Routes; //Value to hide/show different header depending which screen is active
 
   /**
    * List of variables to set the button come back 
    */
-  wizardScreenActive = Routes.COMEBACK_WIZARDS
-  wizardScreenDescActive = Routes.COMEBACK_WIZARDS_DESC
-  objectsScreenActive = Routes.COMEBACK_OBJECTS
-  objectsScreenDescActive = Routes.COMEBACK_OBJECTS_DESC
-  creaturesScreenActive = Routes.COMEBACK_CREATURES
-  creaturesScreenDescActive = Routes.COMEBACK_CREATURES_DESC
-  placesScreenActive = Routes.COMEBACK_PLACES
-  placesScreenDescActive = Routes.COMEBACK_PLACES_DESC
+  wizardScreenActive = Routes.GO_BACK_FROM_SCREEN_WIZARDS
+  objectsScreenActive = Routes.GO_BACK_FROM_SCREEN_OBJECTS
+  creaturesScreenActive = Routes.GO_BACK_FROM_SCREEN_CREATURES
+  mortifagosScreenActive = Routes.GO_BACK_FROM_SCREEN_MORTIFAGOS
 
   /**
    * Routes for function go()
@@ -34,7 +31,7 @@ export class HeaderComponent {
   goToWizardsCategories = Routes.WIZARDS_CATEGORIES
   goToObjectsCategories = Routes.OBJECTS_CATEGORIES
   goToCreaturesCategories = Routes.CREATURES_CATEGORIES
-  goToPlacesCategories = Routes.PLACES_CATEGORIES
+  goToMortifagosCategories = Routes.MORTIFAGOS_CATEGORIES
 
 
   ngOnInit() {
@@ -61,6 +58,10 @@ export class HeaderComponent {
       this.generalService.urlArray.pop()
       console.log('Borrado:' + this.generalService.urlArray[0])
     }
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }
 

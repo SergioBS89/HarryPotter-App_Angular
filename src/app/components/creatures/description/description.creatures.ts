@@ -22,7 +22,7 @@ export class DescriptionCreatures {
   creatureList: Creature[] = [];
   tagList: Creature[] = [];
   isHome: boolean = false
-  comeBack = Routes.COMEBACK_CREATURES_DESC
+  shortcodeToDifferentCategory = Routes.GO_BACK_FROM_SCREEN_CREATURES
   isCreature:boolean = true
 
   ngOnInit(): void {

@@ -20,9 +20,6 @@ export class CreaturesService {
   findCreatures(page: number, category: Routes): Observable<any> {
 
     switch (category) {
-      case Routes.ALL_CREATURES:
-        this.urlEnpointCreatures = 'http://localhost:8080/creatures/pages/' + page
-        break;
       case Routes.DANGER_CREATURES:
         this.urlEnpointCreatures = 'http://localhost:8080/creatures/danger/' + page
         break;

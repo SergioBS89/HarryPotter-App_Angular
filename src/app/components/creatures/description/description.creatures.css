@@ -1,13 +1,4 @@
 
-.background{
-    background-image: url(../../../../assets/img/backgrounds/creatures-background.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding-top: 150px;
-
-}
-
 .container-img-desc{
     height: 680px;
     width: 450px;

@@ -3,9 +3,7 @@ export class Creature {
     raze: string
     resume: string
     phrase: string
-    life: string
-    clasification: string
+    classification: string
     danger: string
     picture: string
-    backcard: string
 }

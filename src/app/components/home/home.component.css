@@ -5,55 +5,39 @@
     width: 100%;
     height: 100%;
     position: absolute;
+    top: 72px;
 }
 
-/* .sticker-center{
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 25%;
-    height: 50%;
-    position: absolute;
-    top: 17%;
-    right: 52%;
-    transform: translateX(50%);
+/* CSS para dispositivos de tamaño extra pequeño (xs) */
+@media (max-width: 575.98px) {
+    .background{
+        background-image: none;
+        background-color: black;
+     }
+}
+
+/* CSS para dispositivos de tamaño pequeño (sm) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .background{
+        background-image: none;
+        background-color: black;
+     }
+     .marginLeftCorrection{
+        margin-right: auto;
+     }
+}
+
+/* CSS para dispositivos de tamaño mediano (md) */
+/* @media (min-width: 768px) and (max-width: 991.98px) {
+    .red-background {
+        display: none; 
+    }
 } */
 
-/* Styles cards home */
-.card-box {
-    margin-bottom: 60px;
-}
+/* CSS para dispositivos de tamaño grande (lg) */
+/* @media (min-width: 992px) and (max-width: 1199.98px) {
+    .red-background {
+        display: block; 
+    }
+} */
 
-.box-front {
-    position: relative;
-    border-radius: 8px;
-    min-height: 300px;
-    transition: transform 0.7s cubic-bezier(.40, .2, .2, 1);
-    background-color: rgba(255, 255, 255, 0.589);
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.507) 30%, rgba(130, 130, 130, 0.562) 100%);
-    cursor: pointer;
-}
-
-.box-front:hover {
-    transform: scale(1.02);
-    background: radial-gradient(circle, rgb(255, 255, 255) 30%, rgba(130, 130, 130, 0.87) 100%);
-}
-
-.container-sticker {
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 60%;
-    height: 60%;
-    position: absolute;
-    right: 50%;
-    transform: translateX(50%);
-    top: 18%;
-}
-
-.text-cards {
-    position: absolute;
-    bottom: 0;
-    right: 50%;
-    transform: translateX(50%);
-    width: 100%;
-    font-family: 'Carter One', cursive;
-}

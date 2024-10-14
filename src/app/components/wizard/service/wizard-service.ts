@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map, throwError } from 'rxjs';
 import { Wizard } from '../class/wizard';
 import { Family } from '../class/family';
 import { Routes } from 'src/app/whole-project/general.enum';
@@ -15,7 +15,6 @@ export class WizardService {
   /**
    * Wizards categories
    */
-  allWizardsCategory = Routes.WIZARDS
   teachersCategory = Routes.TEACHERS
   studentsCategory = Routes.STUDENTS
   mortifagosCategory = Routes.MORTIFAGOS
@@ -24,14 +23,11 @@ export class WizardService {
 
 
   private urlEnpointWizards : string;
-  private urlEnpointFamily = "http://localhost:8080/wizards/family"
+  private urlEnpointFamily = "http://localhost:8080/wizards/search/family/"
 
   findAll(page: number, category: Routes): Observable<any> {
 
     switch (category) {
-      case this.allWizardsCategory:
-        this.urlEnpointWizards = "http://localhost:8080/wizards/pages/"
-        break;
       case this.animalsFantasticsCategory:
         this.urlEnpointWizards = "http://localhost:8080/wizards/animals/"
         break;
@@ -63,10 +59,14 @@ export class WizardService {
   }
 
   findAllCoincidences(name: string): Observable<any> {
-    return this.http.get<Wizard>('http://localhost:8080/wizards/searching/' + name)
+    return this.http.get<Wizard>('http://localhost:8080/wizards/search/searching/' + name)
   }
 
   findFamilyByName(name: String): Observable<Family> {
-    return this.http.get<Family>(`${this.urlEnpointFamily}/${name}`)
+    return this.http.get<Family>(`${this.urlEnpointFamily}${name}`).pipe(
+      catchError(error => {
+        return throwError('Nothing found as family for this wizard');
+      })
+    );
   }
 }

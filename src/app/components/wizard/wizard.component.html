@@ -1,32 +1,16 @@
-<app-header [isHome]="isHome" [comeBack]="comeBack"></app-header>
+<app-header [isHome]="isHome" [shortcodeToDifferentCategory]="shortcodeToDifferentCategory"></app-header>
 
-<div id="background" class="background">
+<div>
     <app-searcher (sendNameSearcher)="searchWizard($event)"></app-searcher>
     <div class="container" style="margin-top: 30px;">
         <div class="row">
-            <div class="box-item col-xxl-3 col-xl-4 col-md-6 col-sm-12 " style="position: relative;"
+            <div class="col-xxl-3 col-xl-4 col-md-6 col-sm-12 d-flex justify-content-center" 
                 *ngFor="let item of wizardList">
-                <div class="flip-box">
-                    <div #fronthover class="flip-box-front text-center" style="background-image: url({{item.picture}})">
-                        <div class="inner color-name">
-                            <h3 #selectorName class="flip-box-header ">{{item.name}}</h3>
-                            <i (click)="hoverUsingArrowCardOnClick(fronthover, backhover)" (mouseover)="remarkName(selectorName, 'wizards')" (mouseleave)="remarkName(selectorName, 'wizards')" id="color-arrow" class="fa-solid fa-circle-right flip-box-arrow {{item.color}}"></i>
-                        </div>
-                    </div>
-                    <div #backhover (mouseenter)="showAnimationClick(animationRotation)" (click)="hoverUsingBackCardOnClick(fronthover, backhover)" class="flip-box-back text-center" style="background-image: url({{item.housecardpicture}});">
-                        <div #animationRotation class="animation-rotate" style="display: none">
-                            <img src="../../../assets/img/click.png" alt="">
-                        </div>
-                        <div class="inner">
-                            <button class="flip-box-button {{item.color}}" (click)="seeDescription(item.name)">Más
-                                información</button>
-                        </div>
-                    </div>
-                </div>
+                <app-card [item]="item" [categoryDescription]="categoryDescription" [category]="category"></app-card>
             </div>
             <!-- Important to ask if paginator has been inject (asinchronous comunication) -->
             <app-paginator *ngIf="paginator && paginatorActive" [paginator]="paginator"
-                [currentScreen]="currentScreen"></app-paginator>
+            [pathPaginator]="pathPaginator"></app-paginator>
         </div>
     </div>
 </div>

@@ -1,9 +1,7 @@
 .container-paginator{
     position: absolute;
     right: 50%;
-    transform: translate(50%, -50px);
-    margin-bottom: 100px;
-    height: 150px;
+    transform: translateY(20px);
 }
 
 .page-link{

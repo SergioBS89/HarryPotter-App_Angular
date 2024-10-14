@@ -18,6 +18,9 @@ import { ReproductorComponent } from './components/reproductor/reproductor.compo
 import { DescriptionObjectComponent } from './components/objects/description/descriptionObject.component';
 import { CreaturesComponent } from './components/creatures/creatures.component';
 import { DescriptionCreatures } from './components/creatures/description/description.creatures';
+import { CardHomeComponent } from './components/card-home/card-home.component';
+import { MortifagosComponent } from './components/villians/mortifagos.component';
+import { CardComponent } from './components/card/card.component';
 
 const routes : Routes = [
   // {path: '', redirectTo: '/clients', pathMatch: 'full'} THIS IS EXAMPLE TO REDIRECT
@@ -26,20 +29,19 @@ const routes : Routes = [
   {path: 'wiz-cat', component: HomeComponent},
   {path: 'obj-cat', component: HomeComponent},
   {path: 'cre-cat', component: HomeComponent},
-  {path: 'pla-cat', component: HomeComponent},
+  {path: 'mor-cat', component: HomeComponent},
   // Wizards-routes
-  {path: 'wizards/:page', component: WizardComponent},
   {path: 'desc/:name', component: DescriptionComponent},
-  {path: 'mortifagos/:page', component: WizardComponent},
   {path: 'ani-fantastics/:page', component: WizardComponent},
   {path: 'students/:page', component: WizardComponent},
   {path: 'teachers/:page', component: WizardComponent},
   {path: 'others/:page', component: WizardComponent},
+  //Mortifagos-page
+  {path: 'mortifagos/:page', component: MortifagosComponent},
   // Objects-routes
-  {path: 'horocruxes', component: ObjectsComponent},
-  {path: 'quiddich', component: ObjectsComponent},
-  {path: 'reliques', component: ObjectsComponent},
-  {path: 'magic', component: ObjectsComponent},
+  {path: 'horocruxes/:page', component: ObjectsComponent},
+  {path: 'quiddich/:page', component: ObjectsComponent},
+  {path: 'reliques/:page', component: ObjectsComponent},
   {path: 'wanders/:page', component: ObjectsComponent},
   {path: 'others-objects/:page', component: ObjectsComponent},
   {path: 'desc-wan/:name', component: DescriptionObjectComponent},
@@ -48,7 +50,6 @@ const routes : Routes = [
   {path: 'desc-oth/:name', component: DescriptionObjectComponent},
   {path: 'desc-rel/:name', component: DescriptionObjectComponent},
    // Creatures-routes
-   {path: 'creatures/:page', component: CreaturesComponent},
    {path: 'no-danger/:page', component: CreaturesComponent},
    {path: 'danger/:page', component: CreaturesComponent},
    {path: 'desc-crea/:name', component: DescriptionCreatures}
@@ -69,7 +70,10 @@ const routes : Routes = [
     ReproductorComponent,
     DescriptionObjectComponent,
     CreaturesComponent,
-    DescriptionCreatures
+    DescriptionCreatures,
+    CardHomeComponent,
+    MortifagosComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

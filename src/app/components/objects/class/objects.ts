@@ -6,6 +6,10 @@ export class Objects {
     name: string = ""
     info: string = ""
     picture: string = ""
-    backcard: string = ""
+    isDeathHollow: boolean = false
+    isHorocruxe: boolean = false
+    isWander: boolean = false
+    isOtherMagicObject: boolean = false
+    isQuiddich: boolean = false
     owner: Wizard[]
 }

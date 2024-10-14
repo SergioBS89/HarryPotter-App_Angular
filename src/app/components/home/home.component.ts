@@ -17,7 +17,7 @@ export class HomeComponent {
    wizardsCategories = Routes.WIZARDS_CATEGORIES
    objectsCategories = Routes.OBJECTS_CATEGORIES
    creaturesCategories = Routes.CREATURES_CATEGORIES
-   placesCategories = Routes.PLACES_CATEGORIES
+   mortifagosCategories = Routes.MORTIFAGOS_CATEGORIES
 
   /**
    * Variables to display HTML screens
@@ -26,13 +26,15 @@ export class HomeComponent {
   displayWizardHomeScreen: boolean;
   displayObjectsHomeScreen: boolean;
   displayCreaturesHomeScreen: boolean;
-  displayPlacesHomeScreen: boolean;
+  displayMortifagosHomeScreen: boolean;
  
   ngOnInit(): void {
 
     /**
      * Get the current route and set the value as true of the correct HTML
+     * 
      */
+    console.log(this.router.url)
  
     switch (this.router.url) {
       case '/':
@@ -44,8 +46,8 @@ export class HomeComponent {
       case '/' + this.creaturesCategories:
         this.displayCreaturesHomeScreen = true
         break;
-      case '/' + this.placesCategories:
-        this.displayPlacesHomeScreen = true
+      case '/' + this.mortifagosCategories:
+        this.displayMortifagosHomeScreen = true
         break;
       case '/' + this.objectsCategories:
         this.displayObjectsHomeScreen = true
@@ -55,6 +57,7 @@ export class HomeComponent {
     }
   }
 
+  //TODO REMOVE THIS CODE IF NOT NEEDED
   /**
    * Function to navigate to differents routes
    * @param url 

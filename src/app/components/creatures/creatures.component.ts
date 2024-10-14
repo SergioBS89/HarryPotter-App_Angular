@@ -17,82 +17,47 @@ export class CreaturesComponent {
   creaturesList: Creature[] = [];
   isHome: boolean = false
   paginator: any
-  currentScreen: string;
-  comeBack = Routes.COMEBACK_CREATURES
   paginatorActive = true
-  counterHelp : number
-  activeRemarkName : boolean
-  
-
-  /**
-   * Categories
-   */
-  allCreatures = Routes.ALL_CREATURES
-  noDangerCreatures = Routes.NO_DANGER_CREATURES
-  dangerCreatures = Routes.DANGER_CREATURES
+  pathPaginator: string
+  categoryDescription = Routes.CREATURES_CATEGORIES
+  category = Routes.CREATURES
+  shortcodeToDifferentCategory = Routes.GO_BACK_FROM_SCREEN_CREATURES
 
 
   ngOnInit() {
-    this.counterHelp = 0
-    let route = this.router.url
-    let redirectTo : string;
+    let route = this.router.url;
+    let redirectTo = '';
+    let pathPrefix;
+
     switch (route) {
-      case this.getCompleteRoute(this.allCreatures):
-        redirectTo = '/creatures/0'
-        this.activedRoute.paramMap.subscribe(
-          params => {
-            let page: number = +params.get('page')
-            this.generalService.checkIfPageValueIsNaN(page, redirectTo, this.router)
-            this.service
-              .findCreatures(page, this.allCreatures)
-              .subscribe((response) => {
-                this.creaturesList = response.content as Creature[];
-                this.paginator = response
-                this.generalService.validateIfPageReturnEmptyArray(this.creaturesList, redirectTo, this.router)
-              });
-          })
-        this.currentScreen = this.allCreatures.toString()
-        this.generalService.setBackground('creatures-background.jpg')
+
+      case this.getCompleteRoute(Routes.NO_DANGER_CREATURES):
+        redirectTo = '/' + Routes.NO_DANGER_CREATURES + '/'
+        pathPrefix = Routes.NO_DANGER_CREATURES
         break;
 
-      case this.getCompleteRoute(this.noDangerCreatures):
-        redirectTo = '/no-danger/0'
-        this.activedRoute.paramMap.subscribe(
-          params => {
-            let page: number = +params.get('page')
-            this.generalService.checkIfPageValueIsNaN(page, redirectTo, this.router)
-            this.service
-              .findCreatures(page, this.noDangerCreatures)
-              .subscribe((response) => {
-                this.creaturesList = response.content as Creature[];
-                this.paginator = response
-                this.generalService.validateIfPageReturnEmptyArray(this.creaturesList, redirectTo, this.router)
-              });
-          })
-        this.currentScreen = this.noDangerCreatures.toString()
-        this.generalService.setBackground('creatures-nodanger.jpg')
+      case this.getCompleteRoute(Routes.DANGER_CREATURES):
+        redirectTo = '/' + Routes.DANGER_CREATURES + '/'
+        pathPrefix = Routes.DANGER_CREATURES
         break;
-
-        case this.getCompleteRoute(this.dangerCreatures):
-          redirectTo = '/danger/0'
-          this.activedRoute.paramMap.subscribe(
-            params => {
-              let page: number = +params.get('page')
-              this.generalService.checkIfPageValueIsNaN(page, redirectTo, this.router)
-              this.service
-                .findCreatures(page, this.dangerCreatures)
-                .subscribe((response) => {
-                  this.creaturesList = response.content as Creature[];
-                  this.paginator = response
-                  this.generalService.validateIfPageReturnEmptyArray(this.creaturesList, redirectTo, this.router)
-                });
-            })
-          this.currentScreen = this.dangerCreatures.toString()
-          this.generalService.setBackground('creatures-danger.jpg')
-          break;
       default:
         break;
     }
+
+    this.pathPaginator = '/' + pathPrefix + '/';
+
+    this.activedRoute.paramMap.subscribe(
+      params => {
+        let page: number = +params.get('page')
+        this.generalService.checkIfPageValueIsNaN(page, redirectTo, this.router)
+        this.service
+          .findCreatures(page, pathPrefix)
+          .subscribe((response) => {
+            this.creaturesList = response.content as Creature[];
+            this.paginator = response
+            this.generalService.validateIfPageReturnEmptyArray(this.creaturesList, redirectTo, this.router)
+          });
+      })
 
   }
   /**
@@ -111,26 +76,6 @@ export class CreaturesComponent {
   seeDescription(url: string) {
     this.generalService.urlArray.push(this.router.url)
     this.router.navigate(['/desc-crea/' + url]);
-  }
-
-
-  hoverUsingArrowCardOnClick(selectorFront: HTMLElement, selectorBack: HTMLElement) {
-    this.generalService.hoverUsingArrowCardOnClick(selectorFront,selectorBack)
-   }
- 
-   hoverUsingBackCardOnClick(selectorFront: HTMLElement, selectorBack: HTMLElement) {
-   this.generalService.hoverUsingBackCardOnClick(selectorFront,selectorBack)
-   }
- 
-   remarkName(selectorName : HTMLElement, category: string){
-    this.activeRemarkName = this.generalService.remarkName(selectorName, this.activeRemarkName, category)
-   }
-
-   showAnimationClick(selectorName: HTMLElement) {
-    if (this.counterHelp < 1) {
-      this.generalService.showAnimationClick(selectorName)
-      this.counterHelp++
-    }
   }
 
 }

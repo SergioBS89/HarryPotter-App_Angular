@@ -14,26 +14,11 @@ export class PaginatorComponent {
  listPages: number[];
  from: number;
  to: number;
- 
- //Paginator is displayed in some screens
- @Input()
- currentScreen : string;
 
- /**
-  * Categories whole project
-  */
- allWizardsCategory = Routes.WIZARDS
- teachersCategory = Routes.TEACHERS
- studentsCategory = Routes.STUDENTS
- mortifagosCategory = Routes.MORTIFAGOS
- otherWizardsCategory = Routes.OTHERS_WIZ
- animalsFantasticsCategory = Routes.ANIMALS_FANTASTICS
- otherObjectsCategory = Routes.OTHER_OBJECTS
- wandersCategory = Routes.WANDERS
- allCreatures = Routes.ALL_CREATURES
- noDangerCreatures = Routes.NO_DANGER_CREATURES
- dangerCreatures = Routes.DANGER_CREATURES
+//category where the component is displayed
+ @Input() category: string;
 
+ @Input() pathPaginator;
 
 
  constructor() { }
